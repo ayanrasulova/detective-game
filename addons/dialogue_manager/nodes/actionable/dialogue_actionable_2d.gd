@@ -50,8 +50,8 @@ func _ready() -> void:
 ## Action this [DialogueActionable2D]. If a [DialogueResource] and cue have been set on this node then
 ## it will start dialogue.
 func action() -> void:
-	if is_instance_valid(dialogue_resource) and not dialogue_cue.is_empty():
-		dialogue_balloon = start_dialogue.call(dialogue_resource, dialogue_cue, [{ actionable = self }, owner])
+	if is_instance_valid(dialogue_resource) and not dialogue_cue.is_empty() and not UI.dialogue_balloon_visible:
+		UI.start_dialogue_resource_at_label(dialogue_resource, dialogue_cue);
 	actioned.emit()
 
 

@@ -17,3 +17,7 @@ func start_dialogue_at_label(dialogue_filename : String, label : String) -> void
 		return;
 	DialogueManager.show_dialogue_balloon_scene("res://scenes/dialogue_balloon/balloon.tscn", load("res://dialogue/" + dialogue_filename + ".dialogue"), label);
 	dialogue_balloon_visible = true;
+
+func start_dialogue_resource_at_label(resource : DialogueResource, label : String) -> void:
+	DialogueManager.show_dialogue_balloon_scene("res://scenes/dialogue_balloon/balloon.tscn", resource, label);
+	dialogue_balloon_visible = true;
