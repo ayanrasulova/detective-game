@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://n6x4r0tncpp3"]
+
+[ext_resource type="Script" uid="uid://c3xx716qfmj2f" path="res://scripts/player.gd" id="1_nnsk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5751"]
+size = Vector2(744, 154)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iec6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
+radius = 7.0
+height = 36.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c5751"]
+
+[node name="World" type="Node2D" unique_id=643975043]
+
+[node name="Ground" type="Node2D" parent="." unique_id=252747223]
+position = Vector2(136, 127)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground" unique_id=347180918]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D" unique_id=1397618614]
+position = Vector2(94, 96)
+shape = SubResource("RectangleShape2D_c5751")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground/StaticBody2D" unique_id=380229972]
+position = Vector2(93.499985, 97)
+scale = Vector2(747, 158.00002)
+texture = SubResource("PlaceholderTexture2D_iec6v")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=112615396]
+position = Vector2(136, 100)
+script = ExtResource("1_nnsk1")
+move_speed = 75.0
+gravity = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=79708610]
+shape = SubResource("CapsuleShape2D_iec6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=618451740]
+position = Vector2(1.0000038, 1)
+scale = Vector2(18.000002, 35)
+texture = SubResource("PlaceholderTexture2D_c5751")
