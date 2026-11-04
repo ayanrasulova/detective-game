@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://o3t5b0ud8eo0"]
+
+[ext_resource type="Script" uid="uid://8lu7whgw2amo" path="res://scripts/interact_prompt.gd" id="1_ouiaj"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="2_dg0nu"]
+
+[node name="InteractPrompt" type="Control" unique_id=694864428 groups=["InteractPrompt"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ouiaj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1702857910]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 36.44445
+offset_bottom = 12.333334
+theme_override_fonts/normal_font = ExtResource("2_dg0nu")
+theme_override_font_sizes/normal_font_size = 16
+text = "int!"
+horizontal_alignment = 1

@@ -1,11 +1,11 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ test1
+this is test dialogue one.
+=> END
+
+~ test2
+this is test dialogue two.
+=> END
+
+~ test3
+this is the secret third test dialogue.
 => END

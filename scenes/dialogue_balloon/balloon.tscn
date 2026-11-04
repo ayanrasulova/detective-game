@@ -113,6 +113,8 @@ _data = {
 [node name="DialogueBalloon" type="CanvasLayer" unique_id=1912754290]
 layer = 100
 script = ExtResource("1_s2gbs")
+next_action = &"interact"
+skip_action = &"cancel"
 
 [node name="Balloon" type="Control" parent="." unique_id=1177332107]
 unique_name_in_owner = true
@@ -126,38 +128,20 @@ theme = SubResource("Theme_qq3yp")
 
 [node name="Panel" type="Panel" parent="Balloon" unique_id=1082089725]
 layout_mode = 0
-offset_top = 169.0
-offset_right = 320.0
-offset_bottom = 240.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=243547760]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -71.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="CenterContainer" type="CenterContainer" parent="Balloon" unique_id=1047265792]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 749.0
+offset_right = 1443.0
+offset_bottom = 1115.0
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=1215135358]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
-offset_left = 76.0
-offset_top = 167.0
-offset_right = 311.0
-offset_bottom = 228.0
+offset_left = 234.0
+offset_top = 762.0
+offset_right = 1306.0
+offset_bottom = 829.0
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -168,21 +152,22 @@ unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
-offset_left = 76.0
-offset_top = 185.0
-offset_right = 311.0
-offset_bottom = 235.0
+offset_left = 233.0
+offset_top = 830.0
+offset_right = 1389.0
+offset_bottom = 1161.0
 grow_horizontal = 1
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 48
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon" unique_id=351729490]
 custom_minimum_size = Vector2(5, 3)
 anchors_preset = 0
-offset_left = 308.0
-offset_top = 232.0
-offset_right = 610.0
-offset_bottom = 235.0
+offset_left = 1399.0
+offset_top = 1054.0
+offset_right = 1701.0
+offset_bottom = 1057.0
 size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/Control" unique_id=570583621]
@@ -201,10 +186,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = -91.0
-offset_right = 157.0
-offset_bottom = -73.0
+offset_left = 190.0
+offset_top = -474.0
+offset_right = 690.0
+offset_bottom = -434.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
@@ -212,7 +197,9 @@ theme_override_constants/separation = 2
 script = ExtResource("3_1j1j0")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1555320070]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Response Example"
 
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=128480551]
