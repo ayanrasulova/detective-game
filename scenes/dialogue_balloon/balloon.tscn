@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://b7xk2sxaxs7ph"]
 
 [ext_resource type="Script" uid="uid://fvntj76ebyna" path="res://scenes/dialogue_balloon/balloon.gd" id="1_s2gbs"]
+[ext_resource type="Texture2D" uid="uid://bw4vddw5d20xp" path="res://sprites/ui/folder_back_slim.png" id="2_b0074"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_hfvdi"]
+[ext_resource type="FontFile" uid="uid://rulbambknwg3" path="res://fonts/CITYBURN-⌐.TTF" id="2_try7v"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_1j1j0"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="5_cp45b"]
+[ext_resource type="Texture2D" uid="uid://ds3de55qd0f1h" path="res://sprites/ui/folder_backing.png" id="5_t4lio"]
+[ext_resource type="Texture2D" uid="uid://cawcr4wmgycmq" path="res://sprites/portraits/you.png" id="7_yvd1d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
 content_margin_left = 6.0
@@ -110,6 +115,26 @@ _data = {
 &"progress": SubResource("Animation_i6nbm")
 }
 
+[sub_resource type="Theme" id="Theme_b0074"]
+default_font = ExtResource("5_cp45b")
+default_font_size = 48
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("5_cp45b")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0074"]
+bg_color = Color(0.7607843, 0.627451, 0.25882354, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnfrs"]
+bg_color = Color(0.76, 0.5917867, 0.12920001, 1)
+corner_radius_top_left = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 15.0
+expand_margin_bottom = 9.0
+
 [node name="DialogueBalloon" type="CanvasLayer" unique_id=1912754290]
 layer = 100
 script = ExtResource("1_s2gbs")
@@ -126,24 +151,61 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="Panel" type="Panel" parent="Balloon" unique_id=1082089725]
+[node name="BackFolder" type="TextureRect" parent="Balloon" unique_id=2130657904]
+modulate = Color(0.36862746, 0.23921569, 0.09411765, 1)
 layout_mode = 0
-offset_top = 749.0
-offset_right = 1443.0
-offset_bottom = 1115.0
+offset_left = -146.0
+offset_top = 703.99994
+offset_right = 1294.0
+offset_bottom = 1160.0
+rotation = 0.09660208
+texture = ExtResource("2_b0074")
+stretch_mode = 2
+
+[node name="BackFolder2" type="TextureRect" parent="Balloon" unique_id=367803238]
+modulate = Color(0.37, 0.24050002, 0.0925, 1)
+layout_mode = 0
+offset_left = 533.0
+offset_top = 740.00006
+offset_right = 1973.0
+offset_bottom = 1196.0001
+rotation = -0.038695343
+texture = ExtResource("2_b0074")
+stretch_mode = 2
+
+[node name="BackFolder3" type="TextureRect" parent="Balloon" unique_id=2059960633]
+modulate = Color(0.52, 0.37249333, 0.1352, 1)
+layout_mode = 0
+offset_left = 216.0
+offset_top = 697.0
+offset_right = 1656.0
+offset_bottom = 1153.0
+rotation = 0.055780426
+texture = ExtResource("2_b0074")
+stretch_mode = 2
+
+[node name="FrontFolder" type="TextureRect" parent="Balloon" unique_id=1174267707]
+modulate = Color(0.76, 0.62624, 0.25839996, 1)
+layout_mode = 0
+offset_top = 689.0
+offset_right = 1440.0
+offset_bottom = 1145.0
+texture = ExtResource("5_t4lio")
+stretch_mode = 2
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=1215135358]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 0
-offset_left = 234.0
-offset_top = 762.0
-offset_right = 1306.0
-offset_bottom = 829.0
+offset_left = 438.0
+offset_top = 793.0
+offset_right = 1510.0
+offset_bottom = 923.0
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 48
+theme_override_colors/default_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
+theme_override_fonts/normal_font = ExtResource("2_try7v")
+theme_override_font_sizes/normal_font_size = 120
 bbcode_enabled = true
-text = "Character"
+text = "You:"
 fit_content = true
 scroll_active = false
 
@@ -152,63 +214,85 @@ unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
-offset_left = 233.0
-offset_top = 830.0
-offset_right = 1389.0
-offset_bottom = 1161.0
+offset_left = 457.0
+offset_top = 895.0
+offset_right = 1283.0
+offset_bottom = 1226.0
 grow_horizontal = 1
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 48
+theme_override_colors/default_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
+theme_override_fonts/normal_font = ExtResource("5_cp45b")
+theme_override_font_sizes/normal_font_size = 36
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon" unique_id=351729490]
+modulate = Color(0.1882353, 0.10980392, 0.023529412, 1)
 custom_minimum_size = Vector2(5, 3)
 anchors_preset = 0
-offset_left = 1399.0
-offset_top = 1054.0
-offset_right = 1701.0
-offset_bottom = 1057.0
+offset_left = 1360.0
+offset_top = 1005.0
+offset_right = 1518.3334
+offset_bottom = 1100.0
 size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/Control" unique_id=570583621]
 unique_name_in_owner = true
+position = Vector2(-59, -37)
+scale = Vector2(15, 15)
 polygon = PackedVector2Array(0, 0, 2.5, 3, 5, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/Control" unique_id=1392989128]
 libraries/ = SubResource("AnimationLibrary_6b6c8")
 autoplay = &"progress"
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=930429145]
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=930429145 node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 190.0
-offset_top = -474.0
-offset_right = 690.0
-offset_bottom = -434.0
-grow_horizontal = 2
-grow_vertical = 0
+propagate_maximum_size = false
+layout_mode = 0
+offset_left = 899.0
+offset_top = 22.0
+offset_right = 1514.0
+offset_bottom = 746.0
 size_flags_vertical = 8
-theme_override_constants/separation = 2
+theme_override_constants/separation = 20
+alignment = 2
 script = ExtResource("3_1j1j0")
+response_template = NodePath("Button")
 
-[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1555320070]
-custom_minimum_size = Vector2(0, 100)
+[node name="Button" type="Button" parent="Balloon/ResponsesMenu" unique_id=388090641]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Response Example"
+theme = SubResource("Theme_b0074")
+theme_override_colors/font_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.14509805, 0.05490196, 1)
+theme_override_colors/font_pressed_color = Color(0.6630487, 0.14517549, 0.056603484, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.14509805, 0.05490196, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.6627451, 0.14509805, 0.05490196, 1)
+theme_override_colors/font_disabled_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_b0074")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lnfrs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnfrs")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b0074")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lnfrs")
+text = "response 1"
+alignment = 0
 
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=128480551]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 18.0
-offset_top = 184.0
+offset_top = 223.0
 offset_right = 58.0
-offset_bottom = 224.0
+offset_bottom = 263.0
+
+[node name="TextureRect" type="TextureRect" parent="Balloon" unique_id=1576792479]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 683.0
+offset_right = 412.0
+offset_bottom = 1101.0
+texture = ExtResource("7_yvd1d")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=963979321]
 unique_name_in_owner = true

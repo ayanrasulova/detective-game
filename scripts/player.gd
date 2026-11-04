@@ -18,18 +18,15 @@ func _ready() -> void:
 	#catch when the player's interaction box overlaps/leaves range
 	#of interactables in the world
 	interaction_area.area_entered.connect(func(area : Area2D):
-		if area is Interactable: nearby_interactables.append(area)
-		print(nearby_interactables.size()));
+		if area is Interactable: nearby_interactables.append(area));
 	interaction_area.area_exited.connect(func(area : Area2D):
-		if area is Interactable: nearby_interactables.erase(area)
-		print(nearby_interactables.size()));
+		if area is Interactable: nearby_interactables.erase(area));
 	pass;
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		var target = _get_nearest_interactable();
-		print(target);
 		if target:
 			target.interact();
 			get_viewport().set_input_as_handled();

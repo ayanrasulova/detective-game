@@ -14,6 +14,8 @@ size = Vector2(744, 154)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iec6v"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c5751"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
 radius = 7.0
 height = 36.0
@@ -63,6 +65,12 @@ modulate = Color(0.2, 1, 1, 1)
 position = Vector2(93.499985, 97)
 scale = Vector2(747, 158.00002)
 texture = SubResource("PlaceholderTexture2D_iec6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Ground" unique_id=1308856505]
+modulate = Color(0.174626, 0.17462596, 0.17462596, 1)
+position = Vector2(182.91396, 19.191914)
+scale = Vector2(-305.2075, 34.207882)
+texture = SubResource("PlaceholderTexture2D_c5751")
 
 [node name="Player" type="CharacterBody2D" parent="SubViewport/World" unique_id=112615396]
 position = Vector2(136, 100)
