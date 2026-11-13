@@ -46,6 +46,8 @@ var dialogue_line: DialogueLine:
 		else:
 			# The dialogue has finished so close the balloon
 			if owner == null:
+				balloon_animation_player.play("disappear");
+				await balloon_animation_player.animation_finished;
 				UI.dialogue_balloon_visible = false;
 				queue_free()
 			else:
@@ -70,6 +72,9 @@ var mutation_cooldown: Timer = Timer.new()
 
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
+
+
+@onready var balloon_animation_player: AnimationPlayer = $Balloon/AnimationPlayer
 
 
 func _ready() -> void:
@@ -121,6 +126,7 @@ func start(with_dialogue_resource: DialogueResource = null, cue: String = "", ex
 		start_from_cue = cue
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(start_from_cue, temporary_game_states)
 	show()
+	balloon_animation_player.play("appear");
 
 
 ## Apply any changes to the balloon given a new [DialogueLine].

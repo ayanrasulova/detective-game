@@ -135,6 +135,254 @@ corner_radius_bottom_left = 20
 expand_margin_left = 15.0
 expand_margin_bottom = 9.0
 
+[sub_resource type="Animation" id="Animation_b0074"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontFolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 689)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontFolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackFolder3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 697)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackFolder2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(533, 740.00006)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackFolder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-146, 703.99994)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FrontFolder/TextureRect:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(517, -6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FrontFolder/TextureRect:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lnfrs"]
+resource_name = "appear"
+length = 0.5000083482347428
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontFolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.25, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-424.33826, 986.60736), Vector2(-424, 980.99994), Vector2(-489, 666), Vector2(-491, 697.00006), Vector2(-499, 689)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontFolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.25, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [-0.03578742, -0.056377597, -0.03555297, 0.014702506, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackFolder3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(153, 1139), Vector2(224, 685), Vector2(216, 697)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackFolder2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(628, 1118), Vector2(526, 729), Vector2(533, 740.00006)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackFolder:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-279, 1149), Vector2(-157.08333, 741.08325), Vector2(-146, 703.99994)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FrontFolder/TextureRect:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(517, -6), Vector2(511.0109, -29.955868), Vector2(509.39804, -31.32891), Vector2(507, -45.999992)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FrontFolder/TextureRect:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lljus"]
+resource_name = "disappear"
+length = 0.2500083407841623
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrontFolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-499, 672), Vector2(-571, 1160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FrontFolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.009967576, 0.0166145]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackFolder3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(216, 697), Vector2(123.98207, 1138.7073)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackFolder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-146, 703.99994), Vector2(-238.01793, 1145.7073)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BackFolder2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.083333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(533, 740.00006), Vector2(440.98206, 1181.7075)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lljus"]
+_data = {
+&"RESET": SubResource("Animation_b0074"),
+&"appear": SubResource("Animation_lnfrs"),
+&"disappear": SubResource("Animation_lljus")
+}
+
 [node name="DialogueBalloon" type="CanvasLayer" unique_id=1912754290]
 layer = 100
 script = ExtResource("1_s2gbs")
@@ -168,7 +416,7 @@ layout_mode = 0
 offset_left = 533.0
 offset_top = 740.00006
 offset_right = 1973.0
-offset_bottom = 1196.0001
+offset_bottom = 1196.0
 rotation = -0.038695343
 texture = ExtResource("2_b0074")
 stretch_mode = 2
@@ -179,27 +427,28 @@ layout_mode = 0
 offset_left = 216.0
 offset_top = 697.0
 offset_right = 1656.0
-offset_bottom = 1153.0
+offset_bottom = 1153.0002
 rotation = 0.055780426
 texture = ExtResource("2_b0074")
 stretch_mode = 2
 
 [node name="FrontFolder" type="TextureRect" parent="Balloon" unique_id=1174267707]
-modulate = Color(0.76, 0.62624, 0.25839996, 1)
+self_modulate = Color(0.7607843, 0.627451, 0.25882354, 1)
 layout_mode = 0
 offset_top = 689.0
-offset_right = 1440.0
+offset_right = 2426.0
 offset_bottom = 1145.0
+pivot_offset = Vector2(1236.9901, 208.32343)
 texture = ExtResource("5_t4lio")
 stretch_mode = 2
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon" unique_id=1215135358]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/FrontFolder" unique_id=1215135358]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 438.0
-offset_top = 793.0
-offset_right = 1510.0
-offset_bottom = 923.0
+offset_left = 905.0
+offset_top = 96.0
+offset_right = 1977.0
+offset_bottom = 226.0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
 theme_override_fonts/normal_font = ExtResource("2_try7v")
@@ -209,15 +458,15 @@ text = "You:"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon" unique_id=1677336664 instance=ExtResource("2_hfvdi")]
+[node name="DialogueLabel" parent="Balloon/FrontFolder" unique_id=1677336664 instance=ExtResource("2_hfvdi")]
 unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
-offset_left = 457.0
-offset_top = 895.0
-offset_right = 1283.0
-offset_bottom = 1226.0
+offset_left = 980.0
+offset_top = 206.0
+offset_right = 1806.0
+offset_bottom = 537.0
 grow_horizontal = 1
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
@@ -225,25 +474,44 @@ theme_override_fonts/normal_font = ExtResource("5_cp45b")
 theme_override_font_sizes/normal_font_size = 36
 text = "Dialogue..."
 
-[node name="Control" type="Control" parent="Balloon" unique_id=351729490]
+[node name="Control" type="Control" parent="Balloon/FrontFolder" unique_id=351729490]
 modulate = Color(0.1882353, 0.10980392, 0.023529412, 1)
 custom_minimum_size = Vector2(5, 3)
 anchors_preset = 0
-offset_left = 1360.0
-offset_top = 1005.0
-offset_right = 1518.3334
-offset_bottom = 1100.0
+offset_left = 1883.0
+offset_top = 316.0
+offset_right = 2041.3334
+offset_bottom = 411.0
 size_flags_vertical = 8
 
-[node name="Progress" type="Polygon2D" parent="Balloon/Control" unique_id=570583621]
+[node name="Progress" type="Polygon2D" parent="Balloon/FrontFolder/Control" unique_id=570583621]
 unique_name_in_owner = true
 position = Vector2(-59, -37)
 scale = Vector2(15, 15)
 polygon = PackedVector2Array(0, 0, 2.5, 3, 5, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/Control" unique_id=1392989128]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/FrontFolder/Control" unique_id=1392989128]
 libraries/ = SubResource("AnimationLibrary_6b6c8")
 autoplay = &"progress"
+
+[node name="Portrait" type="TextureRect" parent="Balloon/FrontFolder" unique_id=128480551]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 541.0
+offset_top = -466.0
+offset_right = 581.0
+offset_bottom = -426.0
+
+[node name="TextureRect" type="TextureRect" parent="Balloon/FrontFolder" unique_id=1576792479]
+layout_mode = 0
+offset_left = 517.0
+offset_top = -6.0
+offset_right = 935.0
+offset_bottom = 412.0
+pivot_offset = Vector2(205.59354, 414.028)
+texture = ExtResource("7_yvd1d")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=930429145 node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
@@ -276,23 +544,8 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lnfrs")
 text = "response 1"
 alignment = 0
 
-[node name="Portrait" type="TextureRect" parent="Balloon" unique_id=128480551]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 18.0
-offset_top = 223.0
-offset_right = 58.0
-offset_bottom = 263.0
-
-[node name="TextureRect" type="TextureRect" parent="Balloon" unique_id=1576792479]
-layout_mode = 0
-offset_left = -6.0
-offset_top = 683.0
-offset_right = 412.0
-offset_bottom = 1101.0
-texture = ExtResource("7_yvd1d")
-expand_mode = 1
-stretch_mode = 4
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon" unique_id=94716659]
+libraries/ = SubResource("AnimationLibrary_lljus")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=963979321]
 unique_name_in_owner = true
