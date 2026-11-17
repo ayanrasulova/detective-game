@@ -11,7 +11,6 @@ var v : bool = false;
 func set_target(t: Node2D) -> void:
 	if(t != null and t != target): animation_player.play("reveal");
 	target = t;
-	if(not v and t != null): animation_player.play("reveal");
 	v = t != null;
 	
 

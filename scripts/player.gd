@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export_category("Movement")
@@ -13,6 +14,9 @@ extends CharacterBody2D
 
 var nearby_interactables : Array[Interactable] = [];
 
+#disabled during cutscenes, room transitions, etc.
+var can_move : bool = true;
+
 func _ready() -> void:
 	#catch when the player's interaction box overlaps/leaves range
 	#of interactables in the world
@@ -24,6 +28,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not can_move: return;
 	if event.is_action_pressed("ui_accept"):
 		var target = _get_nearest_interactable();
 		if target:
@@ -43,6 +48,8 @@ func _get_nearest_interactable() -> Interactable:
 
 
 func _physics_process(delta: float) -> void:
+	if not can_move: return;
+	
 	#falling
 	if not is_on_floor(): 
 		velocity.y += gravity * delta;

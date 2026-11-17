@@ -1,0 +1,9 @@
+~ stairs
+Where to?
+- Outside
+	$> go_to_room_index(0)
+	=> END
+- 2nd Floor
+- 3rd Floor
+- Nevermind
+=> END

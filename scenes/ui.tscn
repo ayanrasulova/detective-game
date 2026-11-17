@@ -2,6 +2,67 @@
 
 [ext_resource type="Script" uid="uid://u7bxpik3dv5b" path="res://scripts/ui.gd" id="1_nt7q6"]
 
+[sub_resource type="Animation" id="Animation_nt7q6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2014.1509, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_x4jx1"]
+resource_name = "enter"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-2014.1509, -0.25, 0, 0, 1095.2028, 115.000244, -0.7, -104.32959, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_yev5y"]
+resource_name = "leave"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(218.00024, -0.25, 0, 0.25, 0, 2487.6155, 0, -2414.634, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yev5y"]
+_data = {
+&"RESET": SubResource("Animation_nt7q6"),
+&"enter": SubResource("Animation_x4jx1"),
+&"leave": SubResource("Animation_yev5y")
+}
+
 [node name="UI" type="CanvasLayer" unique_id=838489983]
 layer = 50
 script = ExtResource("1_nt7q6")
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=597830008]
+offset_left = -2014.1509
+offset_top = -1088.2252
+offset_right = 243.6565
+offset_bottom = 1440.0521
+rotation = 0.376106
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="." unique_id=17785194]
+libraries/ = SubResource("AnimationLibrary_yev5y")

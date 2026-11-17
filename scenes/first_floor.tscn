@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c5od3tibun6jp"]
+
+[ext_resource type="Texture2D" uid="uid://bsysw55eixf5h" path="res://sprites/world/hallway.png" id="1_61mbl"]
+[ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="2_jtwsw"]
+[ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_61xml"]
+[ext_resource type="Resource" uid="uid://8smfmv4kg056" path="res://dialogue/first_floor.dialogue" id="4_61xml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aex8v"]
+size = Vector2(337, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
+size = Vector2(46, 149)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7pru3"]
+radius = 10.429995
+
+[node name="FirstFloor" type="Node2D" unique_id=2083813813]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1196441373]
+position = Vector2(160, 91)
+texture = ExtResource("1_61mbl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1553762795]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=1374629488]
+position = Vector2(5, 72)
+shape = SubResource("RectangleShape2D_aex8v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=625444958]
+position = Vector2(-177, 8)
+shape = SubResource("RectangleShape2D_wtddq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=372436568]
+position = Vector2(175, 8)
+shape = SubResource("RectangleShape2D_wtddq")
+
+[node name="Border" type="Node2D" parent="." unique_id=895755105]
+position = Vector2(1, -20)
+
+[node name="ColorRect" type="ColorRect" parent="Border" unique_id=1725242917]
+offset_left = -73.5
+offset_top = -135.5
+offset_right = 418.25
+offset_bottom = 25.5
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Border" unique_id=699803738]
+offset_left = -73.5
+offset_top = 199.75
+offset_right = 418.25
+offset_bottom = 360.75
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Border" unique_id=236880114]
+offset_left = 317.0
+offset_top = -135.0
+offset_right = 625.0
+offset_bottom = 361.0
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Border" unique_id=1147104460]
+offset_left = -287.0
+offset_top = -135.0
+offset_right = 1.0
+offset_bottom = 361.0
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="RoomPoint2" type="Node2D" parent="." unique_id=964007329 groups=["RoomPoint"]]
+position = Vector2(160, 94)
+script = ExtResource("2_jtwsw")
+location_index = 2
+
+[node name="Stairs" type="Node2D" parent="." unique_id=1187483979]
+position = Vector2(150, 91)
+
+[node name="Area2D" type="Area2D" parent="Stairs" unique_id=618315555]
+position = Vector2(10.666667, 13.333334)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_61xml")
+dialogue_resource = ExtResource("4_61xml")
+dialogue_cue = "stairs"
+room_transition = 2
+room_transitions = Array[int]([1])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Area2D" unique_id=54561335]
+position = Vector2(-2.861023e-06, 0)
+shape = SubResource("CircleShape2D_7pru3")

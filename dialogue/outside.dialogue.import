@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://kfq7orhnja67"
+path="res://.godot/imported/outside.dialogue-9813111dbce86fb302cb67c0dd3aa6a2.tres"
+
+[deps]
+
+source_file="res://dialogue/outside.dialogue"
+dest_files=["res://.godot/imported/outside.dialogue-9813111dbce86fb302cb67c0dd3aa6a2.tres"]
+
+[params]
+
+defaults=true

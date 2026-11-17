@@ -1,0 +1,7 @@
+~ enter_door
+Go inside?
+- Enter
+	$> go_to_room()
+	=> END
+- Nevermind
+=> END

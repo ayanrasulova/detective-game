@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://8smfmv4kg056"
+path="res://.godot/imported/first_floor.dialogue-2095fe133fc1744a92807c7f6db1ce2f.tres"
+
+[deps]
+
+source_file="res://dialogue/first_floor.dialogue"
+dest_files=["res://.godot/imported/first_floor.dialogue-2095fe133fc1744a92807c7f6db1ce2f.tres"]
+
+[params]
+
+defaults=true

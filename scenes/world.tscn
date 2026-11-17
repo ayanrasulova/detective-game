@@ -5,29 +5,20 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_k0juu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_71j4m"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_qfnet"]
-[ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="6_i7141"]
-[ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/dumpster.dialogue" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://o3t5b0ud8eo0" path="res://scenes/interact_prompt.tscn" id="8_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://bq84g7yg85sxg" path="res://scenes/outside.tscn" id="8_7r4gi"]
 [ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="8_e3hyu"]
-[ext_resource type="Texture2D" uid="uid://bd1ph41c2opan" path="res://sprites/world/outdoors.png" id="9_7r4gi"]
-[ext_resource type="Texture2D" uid="uid://51lffg54eu4s" path="res://sprites/world/outdoors_bg.png" id="10_w7kh3"]
-[ext_resource type="Texture2D" uid="uid://dag6yxa00jscc" path="res://sprites/world/outdoors_bg_2.png" id="12_q5onr"]
+[ext_resource type="PackedScene" uid="uid://c5od3tibun6jp" path="res://scenes/first_floor.tscn" id="9_w7kh3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
 radius = 7.0
 height = 36.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iec6v"]
-size = Vector2(39.111107, 33.333324)
+size = Vector2(16.555553, 33.333324)
 
 [sub_resource type="Resource" id="Resource_i7141"]
 script = ExtResource("4_qfnet")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
-size = Vector2(478.5, 84.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_c5751"]
-radius = 19.736534
 
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=2034727520]
 anchors_preset = 15
@@ -50,7 +41,7 @@ render_target_update_mode = 4
 
 [node name="World" type="Node2D" parent="SubViewport" unique_id=643975043]
 
-[node name="Player" type="CharacterBody2D" parent="SubViewport/World" unique_id=112615396]
+[node name="Player" type="CharacterBody2D" parent="SubViewport/World" unique_id=112615396 groups=["Player"]]
 z_index = 2
 position = Vector2(163.5, 129.25)
 script = ExtResource("1_nnsk1")
@@ -69,7 +60,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Player/InteractionBox" unique_id=1743694964]
-position = Vector2(-20, 1)
+position = Vector2(-8.722229, 1)
 shape = SubResource("RectangleShape2D_iec6v")
 debug_color = Color(0.44501472, 0.5962318, 0.122127436, 0.41960785)
 
@@ -110,138 +101,7 @@ offset_top = 124.0
 offset_right = 167.11111
 offset_bottom = 124.0
 
-[node name="Outside" type="Node2D" parent="SubViewport/World" unique_id=1146362301]
+[node name="Outside" parent="SubViewport/World" unique_id=1170521596 instance=ExtResource("8_7r4gi")]
 
-[node name="Foreground" type="Sprite2D" parent="SubViewport/World/Outside" unique_id=885827145]
-texture_filter = 1
-position = Vector2(157.75, 112.75)
-texture = ExtResource("9_7r4gi")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/World/Outside/Foreground" unique_id=749329579]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Outside/Foreground/StaticBody2D" unique_id=1693300688]
-position = Vector2(26.25, 77.25)
-shape = SubResource("RectangleShape2D_wtddq")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=1862974743]
-energy = 0.51
-blend_mode = 1
-
-[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=2066430617]
-position = Vector2(41, -22.5)
-color = Color(1, 0.85649997, 0.59000003, 1)
-energy = 1.5
-range_z_min = -10
-texture = ExtResource("8_e3hyu")
-
-[node name="PointLight2D4" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=2074743001]
-position = Vector2(52.75, -36.75)
-color = Color(1, 0.85649997, 0.59000003, 1)
-energy = 1.62
-range_z_min = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.2
-
-[node name="PointLight2D5" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=441153786]
-position = Vector2(26, -36.25)
-color = Color(1, 0.85649997, 0.59000003, 1)
-energy = 1.62
-range_z_min = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.2
-
-[node name="PointLight2D3" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=1730696001]
-position = Vector2(-108.5, 0)
-range_z_min = -10
-texture = ExtResource("8_e3hyu")
-
-[node name="Dumpster" type="Node2D" parent="SubViewport/World/Outside" unique_id=984542672]
-position = Vector2(223.75, 116.25)
-
-[node name="Area2D" type="Area2D" parent="SubViewport/World/Outside/Dumpster" unique_id=1193232742]
-position = Vector2(10.666667, 13.333334)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_i7141")
-dialogue_resource = ExtResource("7_i7141")
-dialogue_cue = "dumpster"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Outside/Dumpster/Area2D" unique_id=108414838]
-position = Vector2(-2.861023e-06, 0)
-shape = SubResource("CircleShape2D_c5751")
-
-[node name="Background" type="Parallax2D" parent="SubViewport/World/Outside" unique_id=365090818]
-scroll_scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Outside/Background" unique_id=29953040]
-z_index = -50
-texture_filter = 1
-position = Vector2(182.25, 105.25)
-texture = ExtResource("10_w7kh3")
-
-[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=1668283881]
-position = Vector2(76.25, -52)
-color = Color(1, 0.94, 0.76, 1)
-energy = 0.4
-range_z_min = -100
-range_z_max = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.5
-
-[node name="PointLight2D2" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=97961473]
-position = Vector2(2, -50.5)
-color = Color(1, 0.94, 0.76, 1)
-energy = 0.4
-range_z_min = -100
-range_z_max = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.5
-
-[node name="PointLight2D3" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=617517267]
-position = Vector2(46.75, -20.25)
-color = Color(1, 0.94, 0.76, 1)
-energy = 0.2
-range_z_min = -100
-range_z_max = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.5
-
-[node name="Background2" type="Parallax2D" parent="SubViewport/World/Outside" unique_id=697980984]
-scroll_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Outside/Background2" unique_id=1210075863]
-z_index = -100
-texture_filter = 1
-position = Vector2(182.25, 105.25)
-texture = ExtResource("12_q5onr")
-
-[node name="ColorRect" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1817713818]
-offset_left = -73.5
-offset_top = -135.5
-offset_right = 418.25
-offset_bottom = 25.5
-color = Color(0.07058824, 0.047058824, 0.047058824, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1280735548]
-offset_left = -73.5
-offset_top = 199.75
-offset_right = 418.25
-offset_bottom = 360.75
-pivot_offset = Vector2(279.25, 144.25)
-color = Color(0.07058824, 0.047058824, 0.047058824, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="SubViewport/World/Outside" unique_id=133684432]
-offset_left = 317.0
-offset_top = -41.75
-offset_right = 480.5
-offset_bottom = 272.75
-pivot_offset = Vector2(279.25, 144.25)
-color = Color(0.07058824, 0.047058824, 0.047058824, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1914530071]
-offset_left = -162.5
-offset_top = -41.75
-offset_right = 1.0
-offset_bottom = 272.75
-pivot_offset = Vector2(279.25, 144.25)
-color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+[node name="FirstFloor" parent="SubViewport/World" unique_id=2083813813 instance=ExtResource("9_w7kh3")]
+position = Vector2(1048, -157.25)

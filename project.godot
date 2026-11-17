@@ -20,6 +20,7 @@ config/icon="res://sprites/icon.svg"
 DialogueManager="*uid://c3rodes2l3gxb"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 UI="*uid://dxgrnmj1etffm"
+GameManager="*uid://bl44r7unkc6rk"
 
 [dialogue_manager]
 
@@ -39,6 +40,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://add
 [global_group]
 
 InteractPrompt=""
+Player=""
+RoomPoint=""
 
 [input]
 
@@ -55,7 +58,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/dumpster.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/dumpster.dialogue", "res://dialogue/outside.dialogue", "res://dialogue/first_floor.dialogue")
 
 [physics]
 

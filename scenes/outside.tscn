@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://bq84g7yg85sxg"]
+
+[ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="1_lt5my"]
+[ext_resource type="Texture2D" uid="uid://bd1ph41c2opan" path="res://sprites/world/outdoors.png" id="1_uaw8k"]
+[ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="2_lt5my"]
+[ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_5tstl"]
+[ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/dumpster.dialogue" id="4_lt7nq"]
+[ext_resource type="Resource" uid="uid://kfq7orhnja67" path="res://dialogue/outside.dialogue" id="5_v7x2m"]
+[ext_resource type="Texture2D" uid="uid://51lffg54eu4s" path="res://sprites/world/outdoors_bg.png" id="6_cdqji"]
+[ext_resource type="Texture2D" uid="uid://dag6yxa00jscc" path="res://sprites/world/outdoors_bg_2.png" id="7_x3una"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
+size = Vector2(478.5, 84.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aex8v"]
+size = Vector2(80.75, 126.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5751"]
+radius = 19.736534
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhx03"]
+radius = 10.429995
+
+[node name="Outside" type="Node2D" unique_id=1170521596]
+
+[node name="RoomPoint" type="Node2D" parent="." unique_id=1066673807 groups=["RoomPoint"]]
+position = Vector2(48, 113)
+script = ExtResource("1_lt5my")
+location_index = 1
+
+[node name="RoomPoint2" type="Node2D" parent="." unique_id=1116220028 groups=["RoomPoint"]]
+position = Vector2(202, 113)
+script = ExtResource("1_lt5my")
+
+[node name="Foreground" type="Sprite2D" parent="." unique_id=1549846793]
+texture_filter = 1
+position = Vector2(157.75, 112.75)
+texture = ExtResource("1_uaw8k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground" unique_id=618961487]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/StaticBody2D" unique_id=1425181322]
+position = Vector2(26.25, 77.25)
+shape = SubResource("RectangleShape2D_wtddq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground/StaticBody2D" unique_id=1102021057]
+position = Vector2(-194.75, 20.25)
+shape = SubResource("RectangleShape2D_aex8v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground/StaticBody2D" unique_id=143501678]
+position = Vector2(196.25, 20.25)
+shape = SubResource("RectangleShape2D_aex8v")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Foreground" unique_id=1215917761]
+energy = 0.51
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="Foreground" unique_id=415897496]
+position = Vector2(41, -22.5)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.5
+range_z_min = -10
+texture = ExtResource("2_lt5my")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Foreground" unique_id=1694019870]
+position = Vector2(52.75, -36.75)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.62
+range_z_min = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.2
+
+[node name="PointLight2D5" type="PointLight2D" parent="Foreground" unique_id=1381060571]
+position = Vector2(26, -36.25)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.62
+range_z_min = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.2
+
+[node name="PointLight2D3" type="PointLight2D" parent="Foreground" unique_id=1979101950]
+position = Vector2(-108.5, 0)
+range_z_min = -10
+texture = ExtResource("2_lt5my")
+
+[node name="Dumpster" type="Node2D" parent="." unique_id=1563033974]
+position = Vector2(223.75, 116.25)
+
+[node name="Area2D" type="Area2D" parent="Dumpster" unique_id=1648965328]
+position = Vector2(10.666667, 13.333334)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_5tstl")
+dialogue_resource = ExtResource("4_lt7nq")
+dialogue_cue = "dumpster"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dumpster/Area2D" unique_id=1113940850]
+position = Vector2(-2.861023e-06, 0)
+shape = SubResource("CircleShape2D_c5751")
+
+[node name="Door" type="Node2D" parent="." unique_id=1196745216]
+position = Vector2(36.5, 117)
+
+[node name="Area2D" type="Area2D" parent="Door" unique_id=1490788692]
+position = Vector2(10.666667, 13.333334)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_5tstl")
+dialogue_resource = ExtResource("5_v7x2m")
+dialogue_cue = "enter_door"
+room_transition = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=2138323422]
+position = Vector2(-2.861023e-06, 0)
+shape = SubResource("CircleShape2D_jhx03")
+
+[node name="Background" type="Parallax2D" parent="." unique_id=1628769471]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1400277817]
+z_index = -50
+texture_filter = 1
+position = Vector2(182.25, 105.25)
+texture = ExtResource("6_cdqji")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Sprite2D" unique_id=648311587]
+position = Vector2(76.25, -52)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background/Sprite2D" unique_id=1209421424]
+position = Vector2(2, -50.5)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background/Sprite2D" unique_id=255416507]
+position = Vector2(46.75, -20.25)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.2
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="Background2" type="Parallax2D" parent="." unique_id=1538284050]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background2" unique_id=1015231685]
+z_index = -100
+texture_filter = 1
+position = Vector2(182.25, 105.25)
+texture = ExtResource("7_x3una")
+
+[node name="Border" type="Node2D" parent="." unique_id=580691952]
+
+[node name="ColorRect" type="ColorRect" parent="Border" unique_id=302839570]
+offset_left = -73.5
+offset_top = -135.5
+offset_right = 418.25
+offset_bottom = 25.5
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Border" unique_id=1609024876]
+offset_left = -73.5
+offset_top = 199.75
+offset_right = 418.25
+offset_bottom = 360.75
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Border" unique_id=1216544951]
+offset_left = 317.0
+offset_top = -135.0
+offset_right = 625.0
+offset_bottom = 361.0
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Border" unique_id=782390045]
+offset_left = -287.0
+offset_top = -135.0
+offset_right = 1.0
+offset_bottom = 361.0
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
