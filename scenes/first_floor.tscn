@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bsysw55eixf5h" path="res://sprites/world/hallway.png" id="1_61mbl"]
 [ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="2_jtwsw"]
+[ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="2_ul3eb"]
 [ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_61xml"]
 [ext_resource type="Resource" uid="uid://8smfmv4kg056" path="res://dialogue/first_floor.dialogue" id="4_61xml"]
 
@@ -34,7 +35,26 @@ shape = SubResource("RectangleShape2D_wtddq")
 position = Vector2(175, 8)
 shape = SubResource("RectangleShape2D_wtddq")
 
+[node name="PointLight2D" type="PointLight2D" parent="Background" unique_id=151401094]
+position = Vector2(1.9073486e-06, -17.999996)
+scale = Vector2(0.725, 0.725)
+range_z_max = 100
+texture = ExtResource("2_ul3eb")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background" unique_id=2096193587]
+position = Vector2(132.99998, -17.999996)
+scale = Vector2(0.725, 0.725)
+range_z_max = 100
+texture = ExtResource("2_ul3eb")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background" unique_id=541976438]
+position = Vector2(-130.99998, -17.999996)
+scale = Vector2(0.725, 0.725)
+range_z_max = 100
+texture = ExtResource("2_ul3eb")
+
 [node name="Border" type="Node2D" parent="." unique_id=895755105]
+z_index = 999
 position = Vector2(1, -20)
 
 [node name="ColorRect" type="ColorRect" parent="Border" unique_id=1725242917]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bd1ph41c2opan" path="res://sprites/world/outdoors.png" id="1_uaw8k"]
 [ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="2_lt5my"]
 [ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_5tstl"]
+[ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="4_5tstl"]
 [ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/dumpster.dialogue" id="4_lt7nq"]
 [ext_resource type="Resource" uid="uid://kfq7orhnja67" path="res://dialogue/outside.dialogue" id="5_v7x2m"]
 [ext_resource type="Texture2D" uid="uid://51lffg54eu4s" path="res://sprites/world/outdoors_bg.png" id="6_cdqji"]
@@ -70,6 +71,11 @@ range_z_min = -10
 texture = ExtResource("2_lt5my")
 texture_scale = 0.2
 
+[node name="PointLight2D3" type="PointLight2D" parent="Foreground" unique_id=1979101950]
+position = Vector2(-108.5, 0)
+range_z_min = -10
+texture = ExtResource("2_lt5my")
+
 [node name="PointLight2D5" type="PointLight2D" parent="Foreground" unique_id=1381060571]
 position = Vector2(26, -36.25)
 color = Color(1, 0.85649997, 0.59000003, 1)
@@ -78,10 +84,21 @@ range_z_min = -10
 texture = ExtResource("2_lt5my")
 texture_scale = 0.2
 
-[node name="PointLight2D3" type="PointLight2D" parent="Foreground" unique_id=1979101950]
-position = Vector2(-108.5, 0)
-range_z_min = -10
-texture = ExtResource("2_lt5my")
+[node name="PointLight2D2" type="PointLight2D" parent="Foreground" unique_id=1264678826]
+position = Vector2(26.25, -5.093751)
+scale = Vector2(0.36875, 0.39770836)
+color = Color(1, 0.8646667, 0.71000004, 1)
+energy = 0.3
+texture = ExtResource("4_5tstl")
+offset = Vector2(-0.975, 0)
+
+[node name="PointLight2D6" type="PointLight2D" parent="Foreground" unique_id=1812719230]
+position = Vector2(58.25, -0.75000095)
+scale = Vector2(0.36875, 0.39770836)
+color = Color(1, 0.8646667, 0.71000004, 1)
+energy = 0.3
+texture = ExtResource("4_5tstl")
+offset = Vector2(-10.795, 0)
 
 [node name="Dumpster" type="Node2D" parent="." unique_id=1563033974]
 position = Vector2(223.75, 116.25)
