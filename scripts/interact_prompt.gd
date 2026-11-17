@@ -6,18 +6,19 @@ extends Control
 
 var target : Node2D = null;
 
+var v : bool = false;
+
 func set_target(t: Node2D) -> void:
 	if(t != null and t != target): animation_player.play("reveal");
 	target = t;
-	if(not visible and t != null): animation_player.play("reveal");
-	visible = t != null;
+	if(not v and t != null): animation_player.play("reveal");
+	v = t != null;
 	
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if target == null or not is_instance_valid(target) or UI.dialogue_balloon_visible:
-		visible = false;
-		return;
-	elif target != null and is_instance_valid(target) and UI.dialogue_balloon_visible:
-		visible = true;
-	
-	global_position = target.global_position + label_offset
+		v = false;
+	elif target != null and is_instance_valid(target):
+		v = true;
+		global_position = target.global_position + label_offset
+	modulate.a = lerp(modulate.a, 1.0 if v else 0.0, delta * 10);

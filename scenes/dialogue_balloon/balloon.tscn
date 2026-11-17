@@ -386,8 +386,6 @@ _data = {
 [node name="DialogueBalloon" type="CanvasLayer" unique_id=1912754290]
 layer = 100
 script = ExtResource("1_s2gbs")
-next_action = &"interact"
-skip_action = &"cancel"
 
 [node name="Balloon" type="Control" parent="." unique_id=1177332107]
 unique_name_in_owner = true

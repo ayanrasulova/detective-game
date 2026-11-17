@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8lu7whgw2amo" path="res://scripts/interact_prompt.gd" id="1_ouiaj"]
 [ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="2_dg0nu"]
 [ext_resource type="Texture2D" uid="uid://cnxcnafdiclt5" path="res://sprites/ui/circle.png" id="3_dg0nu"]
+[ext_resource type="Texture2D" uid="uid://kxlw74ndcem8" path="res://sprites/ui/outline.png" id="4_84sxy"]
 
 [sub_resource type="Animation" id="Animation_84sxy"]
 length = 0.001
@@ -67,13 +68,14 @@ _data = {
 }
 
 [node name="InteractPrompt" type="Control" unique_id=694864428 groups=["InteractPrompt"]]
+z_index = 99
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ouiaj")
 label_offset = Vector2(-1, -20)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1518279107]
-self_modulate = Color(0.7607843, 0.627451, 0.25882354, 1)
+self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
 layout_mode = 0
 offset_left = -8.0
@@ -86,7 +88,7 @@ texture = ExtResource("3_dg0nu")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect" unique_id=740737757]
-self_modulate = Color(0.1882353, 0.10980392, 0.023529412, 1)
+self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 texture_filter = 2
 layout_mode = 0
@@ -99,15 +101,30 @@ expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=1702857910]
 layout_mode = 0
-offset_left = -16.0
+offset_left = -19.0
 offset_top = -1.0
-offset_right = 33.118958
-offset_bottom = 19.333334
-theme_override_colors/default_color = Color(0.1882353, 0.10980392, 0.023529412, 1)
+offset_right = 34.0
+offset_bottom = 27.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/normal_font = ExtResource("2_dg0nu")
-theme_override_font_sizes/normal_font_size = 14
-text = "A"
+theme_override_font_sizes/normal_font_size = 12
+text = "a"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=1004538020]
+z_index = -2
+layout_mode = 0
+offset_left = -0.99999964
+offset_top = -0.99999976
+offset_right = 17.0
+offset_bottom = 17.0
+texture = ExtResource("4_84sxy")
+expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=348540806]
 libraries/ = SubResource("AnimationLibrary_84sxy")

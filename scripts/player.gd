@@ -11,7 +11,6 @@ extends CharacterBody2D
 @onready var interaction_area: Area2D = $InteractionBox
 @onready var interaction_collision_shape: CollisionShape2D = $InteractionBox/CollisionShape2D
 
-
 var nearby_interactables : Array[Interactable] = [];
 
 func _ready() -> void:
@@ -25,7 +24,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("ui_accept"):
 		var target = _get_nearest_interactable();
 		if target:
 			target.interact();

@@ -6,15 +6,12 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_71j4m"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_qfnet"]
 [ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="6_i7141"]
-[ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/test.dialogue" id="7_i7141"]
+[ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/dumpster.dialogue" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://o3t5b0ud8eo0" path="res://scenes/interact_prompt.tscn" id="8_4mrxx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5751"]
-size = Vector2(744, 154)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iec6v"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c5751"]
+[ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="8_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://bd1ph41c2opan" path="res://sprites/world/outdoors.png" id="9_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://51lffg54eu4s" path="res://sprites/world/outdoors_bg.png" id="10_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://dag6yxa00jscc" path="res://sprites/world/outdoors_bg_2.png" id="12_q5onr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
 radius = 7.0
@@ -26,7 +23,8 @@ size = Vector2(39.111107, 33.333324)
 [sub_resource type="Resource" id="Resource_i7141"]
 script = ExtResource("4_qfnet")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6aatf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
+size = Vector2(478.5, 84.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5751"]
 radius = 19.736534
@@ -44,6 +42,7 @@ size_flags_vertical = 6
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
 size = Vector2i(1440, 1080)
 size_2d_override = Vector2i(360, 270)
 size_2d_override_stretch = true
@@ -51,29 +50,9 @@ render_target_update_mode = 4
 
 [node name="World" type="Node2D" parent="SubViewport" unique_id=643975043]
 
-[node name="Ground" type="Node2D" parent="SubViewport/World" unique_id=252747223]
-position = Vector2(136, 127)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/World/Ground" unique_id=347180918]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Ground/StaticBody2D" unique_id=1397618614]
-position = Vector2(94, 96)
-shape = SubResource("RectangleShape2D_c5751")
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Ground/StaticBody2D" unique_id=380229972]
-modulate = Color(0.2, 1, 1, 1)
-position = Vector2(93.499985, 97)
-scale = Vector2(747, 158.00002)
-texture = SubResource("PlaceholderTexture2D_iec6v")
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Ground" unique_id=1308856505]
-modulate = Color(0.174626, 0.17462596, 0.17462596, 1)
-position = Vector2(182.91396, 19.191914)
-scale = Vector2(-305.2075, 34.207882)
-texture = SubResource("PlaceholderTexture2D_c5751")
-
 [node name="Player" type="CharacterBody2D" parent="SubViewport/World" unique_id=112615396]
-position = Vector2(136, 100)
+z_index = 2
+position = Vector2(163.5, 129.25)
 script = ExtResource("1_nnsk1")
 move_speed = 80.0
 gravity = 400.0
@@ -94,10 +73,16 @@ position = Vector2(-20, 1)
 shape = SubResource("RectangleShape2D_iec6v")
 debug_color = Color(0.44501472, 0.5962318, 0.122127436, 0.41960785)
 
+[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Player" unique_id=696353475]
+energy = 0.25
+range_z_min = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.35
+
 [node name="Camera" type="Camera2D" parent="SubViewport/World" unique_id=1997059193]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(136, 90)
+position = Vector2(163.5, 129.25)
 
 [node name="PhantomCameraHost" type="Node" parent="SubViewport/World/Camera" unique_id=1698302512]
 process_priority = 300
@@ -107,79 +92,156 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="SubViewport/World" unique_id=1496768262 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(136, 90)
+position = Vector2(163.5, 129.25)
 script = ExtResource("3_71j4m")
-follow_mode = 2
+follow_mode = 1
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_i7141")
 follow_offset = Vector2(0, -10)
-lookahead = true
 lookahead_time = Vector2(1, 0)
 lookahead_acceleration = 0.5
 lookahead_max = true
 lookahead_max_value = Vector2(20, 0)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="TestInteractable" type="Node2D" parent="SubViewport/World" unique_id=984542672]
-position = Vector2(25.777779, 119)
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/TestInteractable" unique_id=1246480603]
-position = Vector2(5.25, 6.2500014)
-scale = Vector2(11.5, 13.500003)
-texture = SubResource("PlaceholderTexture2D_6aatf")
-
-[node name="Area2D" type="Area2D" parent="SubViewport/World/TestInteractable" unique_id=1193232742]
-position = Vector2(10.666667, 13.333334)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_i7141")
-dialogue_resource = ExtResource("7_i7141")
-dialogue_cue = "test1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/TestInteractable/Area2D" unique_id=108414838]
-position = Vector2(-2.861023e-06, 0)
-shape = SubResource("CircleShape2D_c5751")
-
-[node name="TestInteractable2" type="Node2D" parent="SubViewport/World" unique_id=804490604]
-position = Vector2(52.444443, 100.33333)
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/TestInteractable2" unique_id=1274484272]
-position = Vector2(5.25, 6.2500014)
-scale = Vector2(11.5, 13.500003)
-texture = SubResource("PlaceholderTexture2D_6aatf")
-
-[node name="Area2D" type="Area2D" parent="SubViewport/World/TestInteractable2" unique_id=15425012]
-position = Vector2(10.666667, 13.333334)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_i7141")
-dialogue_resource = ExtResource("7_i7141")
-dialogue_cue = "test2"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/TestInteractable2/Area2D" unique_id=591177672]
-shape = SubResource("CircleShape2D_c5751")
-
-[node name="TestInteractable3" type="Node2D" parent="SubViewport/World" unique_id=1543475729]
-position = Vector2(191.11111, 116.33333)
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/TestInteractable3" unique_id=445814480]
-position = Vector2(5.25, 6.2500014)
-scale = Vector2(11.5, 13.500003)
-texture = SubResource("PlaceholderTexture2D_6aatf")
-
-[node name="Area2D" type="Area2D" parent="SubViewport/World/TestInteractable3" unique_id=572439990]
-position = Vector2(10.666667, 13.333334)
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_i7141")
-dialogue_resource = ExtResource("7_i7141")
-dialogue_cue = "test3"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/TestInteractable3/Area2D" unique_id=1622569544]
-shape = SubResource("CircleShape2D_c5751")
-
 [node name="InteractPrompt" parent="SubViewport/World" unique_id=694864428 instance=ExtResource("8_4mrxx")]
 offset_left = 167.11111
 offset_top = 124.0
 offset_right = 167.11111
 offset_bottom = 124.0
+
+[node name="Outside" type="Node2D" parent="SubViewport/World" unique_id=1146362301]
+
+[node name="Foreground" type="Sprite2D" parent="SubViewport/World/Outside" unique_id=885827145]
+texture_filter = 1
+position = Vector2(157.75, 112.75)
+texture = ExtResource("9_7r4gi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/World/Outside/Foreground" unique_id=749329579]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Outside/Foreground/StaticBody2D" unique_id=1693300688]
+position = Vector2(26.25, 77.25)
+shape = SubResource("RectangleShape2D_wtddq")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=1862974743]
+energy = 0.51
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=2066430617]
+position = Vector2(41, -22.5)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.5
+range_z_min = -10
+texture = ExtResource("8_e3hyu")
+
+[node name="PointLight2D4" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=2074743001]
+position = Vector2(52.75, -36.75)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.62
+range_z_min = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.2
+
+[node name="PointLight2D5" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=441153786]
+position = Vector2(26, -36.25)
+color = Color(1, 0.85649997, 0.59000003, 1)
+energy = 1.62
+range_z_min = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.2
+
+[node name="PointLight2D3" type="PointLight2D" parent="SubViewport/World/Outside/Foreground" unique_id=1730696001]
+position = Vector2(-108.5, 0)
+range_z_min = -10
+texture = ExtResource("8_e3hyu")
+
+[node name="Dumpster" type="Node2D" parent="SubViewport/World/Outside" unique_id=984542672]
+position = Vector2(223.75, 116.25)
+
+[node name="Area2D" type="Area2D" parent="SubViewport/World/Outside/Dumpster" unique_id=1193232742]
+position = Vector2(10.666667, 13.333334)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_i7141")
+dialogue_resource = ExtResource("7_i7141")
+dialogue_cue = "dumpster"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Outside/Dumpster/Area2D" unique_id=108414838]
+position = Vector2(-2.861023e-06, 0)
+shape = SubResource("CircleShape2D_c5751")
+
+[node name="Background" type="Parallax2D" parent="SubViewport/World/Outside" unique_id=365090818]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Outside/Background" unique_id=29953040]
+z_index = -50
+texture_filter = 1
+position = Vector2(182.25, 105.25)
+texture = ExtResource("10_w7kh3")
+
+[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=1668283881]
+position = Vector2(76.25, -52)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=97961473]
+position = Vector2(2, -50.5)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="SubViewport/World/Outside/Background/Sprite2D" unique_id=617517267]
+position = Vector2(46.75, -20.25)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.2
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("8_e3hyu")
+texture_scale = 0.5
+
+[node name="Background2" type="Parallax2D" parent="SubViewport/World/Outside" unique_id=697980984]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Outside/Background2" unique_id=1210075863]
+z_index = -100
+texture_filter = 1
+position = Vector2(182.25, 105.25)
+texture = ExtResource("12_q5onr")
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1817713818]
+offset_left = -73.5
+offset_top = -135.5
+offset_right = 418.25
+offset_bottom = 25.5
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1280735548]
+offset_left = -73.5
+offset_top = 199.75
+offset_right = 418.25
+offset_bottom = 360.75
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="SubViewport/World/Outside" unique_id=133684432]
+offset_left = 317.0
+offset_top = -41.75
+offset_right = 480.5
+offset_bottom = 272.75
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="SubViewport/World/Outside" unique_id=1914530071]
+offset_left = -162.5
+offset_top = -41.75
+offset_right = 1.0
+offset_bottom = 272.75
+pivot_offset = Vector2(279.25, 144.25)
+color = Color(0.07058824, 0.047058824, 0.047058824, 1)
