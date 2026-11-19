@@ -10,11 +10,8 @@ func _ready() -> void:
 	
 	#store a dictionary of room points that the player can teleport to
 	var room_points = get_tree().get_nodes_in_group("RoomPoint");
-	print(room_points.size());
 	for point in room_points:
-		print(point);
 		var rp := point as RoomPoint;
-		print(rp.location_index)
 		room_locations[rp.location_index] = rp.global_position;
 
 
