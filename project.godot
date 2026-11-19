@@ -58,7 +58,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/dumpster.dialogue", "res://dialogue/outside.dialogue", "res://dialogue/first_floor.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/dumpster.dialogue", "res://dialogue/outside.dialogue", "res://dialogue/first_floor.dialogue", "res://dialogue/second_floor.dialogue", "res://dialogue/third_floor.dialogue", "res://dialogue/room10.dialogue", "res://dialogue/room11.dialogue", "res://dialogue/room20.dialogue", "res://dialogue/room21.dialogue", "res://dialogue/room30.dialogue", "res://dialogue/room31.dialogue")
 
 [physics]
 

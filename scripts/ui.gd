@@ -4,6 +4,11 @@ extends CanvasLayer
 var dialogue_balloon_visible : bool = false;
 @onready var transition_animation = $TransitionAnimation
 
+
+@onready var room_indicator_label: RichTextLabel = $RoomIndicator/RichTextLabel
+@onready var room_indicator_animation: AnimationPlayer = $RoomIndicator/AnimationPlayer
+
+
 func start_dialogue(dialogue_filename : String) -> void:
 	if dialogue_balloon_visible:
 		push_warning("trying to start dialogue " + dialogue_filename + " while dialogue box is already up.");
@@ -30,3 +35,9 @@ func cover_screen_transition() -> void:
 func uncover_screen_transition() -> void:
 	transition_animation.play("leave");
 	await transition_animation.animation_finished;
+
+func show_room_indicator(room_name : String) -> void:
+	if room_indicator_animation.is_playing(): room_indicator_animation.stop();
+	room_indicator_label.text = room_name;
+	room_indicator_animation.play("show");
+	pass;

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://d3c2mqksmo2nv"
+path="res://.godot/imported/room10.dialogue-cbeb21051befb8263c0d8048f937c7c0.tres"
+
+[deps]
+
+source_file="res://dialogue/room10.dialogue"
+dest_files=["res://.godot/imported/room10.dialogue-cbeb21051befb8263c0d8048f937c7c0.tres"]
+
+[params]
+
+defaults=true

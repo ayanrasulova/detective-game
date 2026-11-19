@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://c5od3tibun6jp"]
+[gd_scene format=3 uid="uid://eirdhi6aqjdj"]
 
-[ext_resource type="Texture2D" uid="uid://bsysw55eixf5h" path="res://sprites/world/hallway.png" id="1_61mbl"]
-[ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="2_jtwsw"]
-[ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="2_ul3eb"]
-[ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_61xml"]
-[ext_resource type="Resource" uid="uid://8smfmv4kg056" path="res://dialogue/first_floor.dialogue" id="4_61xml"]
+[ext_resource type="Texture2D" uid="uid://s0524p7cav8d" path="res://sprites/world/room.png" id="1_8l06u"]
+[ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="2_60kai"]
+[ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="3_ehxrw"]
+[ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="4_o2evc"]
+[ext_resource type="Resource" uid="uid://cg27vhc07w18o" path="res://dialogue/room30.dialogue" id="5_8l06u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aex8v"]
 size = Vector2(337, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
-size = Vector2(46, 149)
+size = Vector2(55.5, 149)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pru3"]
 radius = 10.429995
@@ -18,8 +18,8 @@ radius = 10.429995
 [node name="FirstFloor" type="Node2D" unique_id=2083813813]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1196441373]
-position = Vector2(160, 91)
-texture = ExtResource("1_61mbl")
+position = Vector2(160, 96)
+texture = ExtResource("1_8l06u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1553762795]
 
@@ -28,30 +28,24 @@ position = Vector2(5, 72)
 shape = SubResource("RectangleShape2D_aex8v")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=625444958]
-position = Vector2(-177, 8)
+position = Vector2(-142.5, 8)
 shape = SubResource("RectangleShape2D_wtddq")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=372436568]
-position = Vector2(175, 8)
+position = Vector2(140.75, 8)
 shape = SubResource("RectangleShape2D_wtddq")
 
 [node name="PointLight2D" type="PointLight2D" parent="Background" unique_id=151401094]
-position = Vector2(1.9073486e-06, -17.999996)
+position = Vector2(-63.999992, -17.999996)
 scale = Vector2(0.725, 0.725)
 range_z_max = 100
-texture = ExtResource("2_ul3eb")
+texture = ExtResource("2_60kai")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Background" unique_id=2096193587]
-position = Vector2(132.99998, -17.999996)
+position = Vector2(63.999992, -16.000004)
 scale = Vector2(0.725, 0.725)
 range_z_max = 100
-texture = ExtResource("2_ul3eb")
-
-[node name="PointLight2D3" type="PointLight2D" parent="Background" unique_id=541976438]
-position = Vector2(-130.99998, -17.999996)
-scale = Vector2(0.725, 0.725)
-range_z_max = 100
-texture = ExtResource("2_ul3eb")
+texture = ExtResource("2_60kai")
 
 [node name="Border" type="Node2D" parent="." unique_id=895755105]
 z_index = 999
@@ -73,39 +67,38 @@ pivot_offset = Vector2(279.25, 144.25)
 color = Color(0.07058824, 0.047058824, 0.047058824, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Border" unique_id=236880114]
-offset_left = 317.0
+offset_left = 279.0
 offset_top = -135.0
-offset_right = 625.0
+offset_right = 587.0
 offset_bottom = 361.0
 pivot_offset = Vector2(279.25, 144.25)
 color = Color(0.07058824, 0.047058824, 0.047058824, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Border" unique_id=1147104460]
-offset_left = -287.0
+offset_left = -249.0
 offset_top = -135.0
-offset_right = 1.0
+offset_right = 39.0
 offset_bottom = 361.0
 pivot_offset = Vector2(279.25, 144.25)
 color = Color(0.07058824, 0.047058824, 0.047058824, 1)
 
 [node name="RoomPoint2" type="Node2D" parent="." unique_id=964007329 groups=["RoomPoint"]]
-position = Vector2(160, 94)
-script = ExtResource("2_jtwsw")
-location_index = 2
+position = Vector2(88, 94)
+script = ExtResource("3_ehxrw")
+location_index = 15
 
-[node name="Stairs" type="Node2D" parent="." unique_id=1187483979]
-position = Vector2(150, 91)
+[node name="Door" type="Node2D" parent="." unique_id=1187483979]
+position = Vector2(77, 88)
 
-[node name="Area2D" type="Area2D" parent="Stairs" unique_id=618315555]
+[node name="Area2D" type="Area2D" parent="Door" unique_id=618315555]
 position = Vector2(10.666667, 13.333334)
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_61xml")
-dialogue_resource = ExtResource("4_61xml")
-dialogue_cue = "stairs"
-room_transition = 2
-room_transitions = Array[int]([1])
+script = ExtResource("4_o2evc")
+dialogue_resource = ExtResource("5_8l06u")
+dialogue_cue = "leave"
+room_transition = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Area2D" unique_id=54561335]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=54561335]
 position = Vector2(-2.861023e-06, 0)
 shape = SubResource("CircleShape2D_7pru3")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dxgrnmj1etffm"]
 
 [ext_resource type="Script" uid="uid://u7bxpik3dv5b" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="Texture2D" uid="uid://bw4vddw5d20xp" path="res://sprites/ui/folder_back_slim.png" id="2_x4jx1"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="3_yev5y"]
 
 [sub_resource type="Animation" id="Animation_nt7q6"]
 length = 0.001
@@ -52,6 +54,92 @@ _data = {
 &"leave": SubResource("Animation_yev5y")
 }
 
+[sub_resource type="Animation" id="Animation_gdt2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(454.00003, -2.9999924)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wm3ai"]
+resource_name = "show"
+length = 3.000008422740549
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(454.00003, -2.9999924), Vector2(458.00006, 20), Vector2(453.00003, 127), Vector2(456.00006, 76.000015), Vector2(454.00003, 95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.8333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dubc"]
+_data = {
+&"RESET": SubResource("Animation_gdt2y"),
+&"show": SubResource("Animation_wm3ai")
+}
+
 [node name="UI" type="CanvasLayer" unique_id=838489983]
 layer = 50
 script = ExtResource("1_nt7q6")
@@ -66,3 +154,32 @@ color = Color(0, 0, 0, 1)
 
 [node name="TransitionAnimation" type="AnimationPlayer" parent="." unique_id=17785194]
 libraries/ = SubResource("AnimationLibrary_yev5y")
+
+[node name="RoomIndicator" type="TextureRect" parent="." unique_id=1566268766]
+self_modulate = Color(0.5882353, 0.5058824, 0.2901961, 1)
+z_index = 2
+offset_left = 454.00003
+offset_top = -2.9999924
+offset_right = 917.00037
+offset_bottom = 453.00067
+rotation = 3.1499684
+texture = ExtResource("2_x4jx1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RoomIndicator" unique_id=1970198149]
+layout_mode = 0
+offset_left = 399.67282
+offset_top = 78.65525
+offset_right = 761.5751
+offset_bottom = 152.01587
+rotation = 3.1415927
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Second Floor"
+scroll_active = false
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RoomIndicator" unique_id=211571800]
+libraries/ = SubResource("AnimationLibrary_8dubc")

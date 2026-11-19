@@ -1,0 +1,21 @@
+~ stairs
+Where to?
+- Outside
+	$> go_to_room_index(0)
+	=> END
+- 1st Floor
+	$> go_to_room_index(1)
+	=> END
+- 3rd Floor
+	$> go_to_room_index(2)
+	=> END
+- Nevermind
+	=> END
+
+~ door
+Go inside?
+- Yes
+	$> go_to_room()
+	=> END
+- Nevermind
+	=> END

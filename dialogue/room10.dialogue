@@ -1,0 +1,6 @@
+~ leave
+- Leave?
+	$> go_to_room()
+	=> END
+- Nevermind
+	=> END

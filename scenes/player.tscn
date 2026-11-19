@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://csiy5cuv3m3ci"]
+
+[ext_resource type="Script" uid="uid://c3xx716qfmj2f" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cqcf4wt6q72ah" path="res://sprites/player_test.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="3_qlg0r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
+radius = 7.0
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iec6v"]
+size = Vector2(36, 33.333324)
+
+[node name="Player" type="CharacterBody2D" unique_id=31363882 groups=["Player"]]
+z_index = 2
+script = ExtResource("1_qhqgy")
+move_speed = 80.0
+gravity = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1429606108]
+shape = SubResource("CapsuleShape2D_iec6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=751107540]
+texture_filter = 1
+texture = ExtResource("2_dqkch")
+
+[node name="InteractionBox" type="Area2D" parent="." unique_id=2064324947]
+position = Vector2(8, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBox" unique_id=1937749100]
+position = Vector2(-15, 1)
+shape = SubResource("RectangleShape2D_iec6v")
+debug_color = Color(0.44501472, 0.5962318, 0.122127436, 0.41960785)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=963339506]
+energy = 0.25
+range_z_min = -10
+texture = ExtResource("3_qlg0r")
+texture_scale = 0.35

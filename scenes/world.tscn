@@ -1,21 +1,20 @@
 [gd_scene format=3 uid="uid://n6x4r0tncpp3"]
 
-[ext_resource type="Script" uid="uid://c3xx716qfmj2f" path="res://scripts/player.gd" id="1_nnsk1"]
-[ext_resource type="Texture2D" uid="uid://cqcf4wt6q72ah" path="res://sprites/player_test.png" id="2_71j4m"]
+[ext_resource type="PackedScene" uid="uid://csiy5cuv3m3ci" path="res://scenes/player.tscn" id="1_7r4gi"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_k0juu"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_71j4m"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_qfnet"]
 [ext_resource type="PackedScene" uid="uid://o3t5b0ud8eo0" path="res://scenes/interact_prompt.tscn" id="8_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://bq84g7yg85sxg" path="res://scenes/outside.tscn" id="8_7r4gi"]
-[ext_resource type="Texture2D" uid="uid://col5rdsq82ste" path="res://sprites/world/glow_test.png" id="8_e3hyu"]
-[ext_resource type="PackedScene" uid="uid://c5od3tibun6jp" path="res://scenes/first_floor.tscn" id="9_w7kh3"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec6v"]
-radius = 7.0
-height = 36.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iec6v"]
-size = Vector2(16.555553, 33.333324)
+[ext_resource type="PackedScene" uid="uid://bq84g7yg85sxg" path="res://scenes/rooms/outside.tscn" id="8_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://c5od3tibun6jp" path="res://scenes/rooms/first_floor.tscn" id="9_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://cfp0g2qsv37ad" path="res://scenes/rooms/room_10.tscn" id="10_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://c26xys4j7lg77" path="res://scenes/rooms/second_floor.tscn" id="10_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://1qatvolylmnb" path="res://scenes/rooms/third_floor.tscn" id="11_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://bcu8cl58bq3le" path="res://scenes/rooms/room_11.tscn" id="11_q5onr"]
+[ext_resource type="PackedScene" uid="uid://cqq65driqrgwg" path="res://scenes/rooms/room_20.tscn" id="12_jhx03"]
+[ext_resource type="PackedScene" uid="uid://bgl1o8rqhb62v" path="res://scenes/rooms/room_21.tscn" id="13_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://eirdhi6aqjdj" path="res://scenes/rooms/room_30.tscn" id="14_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://xycfkpmg5hhs" path="res://scenes/rooms/room_31.tscn" id="15_xo05s"]
 
 [sub_resource type="Resource" id="Resource_i7141"]
 script = ExtResource("4_qfnet")
@@ -41,34 +40,8 @@ render_target_update_mode = 4
 
 [node name="World" type="Node2D" parent="SubViewport" unique_id=643975043]
 
-[node name="Player" type="CharacterBody2D" parent="SubViewport/World" unique_id=112615396 groups=["Player"]]
-z_index = 2
+[node name="Player" parent="SubViewport/World" unique_id=31363882 instance=ExtResource("1_7r4gi")]
 position = Vector2(163.5, 129.25)
-script = ExtResource("1_nnsk1")
-move_speed = 80.0
-gravity = 400.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Player" unique_id=79708610]
-shape = SubResource("CapsuleShape2D_iec6v")
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/World/Player" unique_id=618451740]
-texture_filter = 1
-texture = ExtResource("2_71j4m")
-
-[node name="InteractionBox" type="Area2D" parent="SubViewport/World/Player" unique_id=1440524287]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/World/Player/InteractionBox" unique_id=1743694964]
-position = Vector2(-8.722229, 1)
-shape = SubResource("RectangleShape2D_iec6v")
-debug_color = Color(0.44501472, 0.5962318, 0.122127436, 0.41960785)
-
-[node name="PointLight2D" type="PointLight2D" parent="SubViewport/World/Player" unique_id=696353475]
-energy = 0.25
-range_z_min = -10
-texture = ExtResource("8_e3hyu")
-texture_scale = 0.35
 
 [node name="Camera" type="Camera2D" parent="SubViewport/World" unique_id=1997059193]
 physics_interpolation_mode = 1
@@ -105,3 +78,27 @@ offset_bottom = 124.0
 
 [node name="FirstFloor" parent="SubViewport/World" unique_id=2083813813 instance=ExtResource("9_w7kh3")]
 position = Vector2(1048, -157.25)
+
+[node name="SecondFloor" parent="SubViewport/World" unique_id=311536921 instance=ExtResource("10_w7kh3")]
+position = Vector2(-506, -510)
+
+[node name="ThirdFloor" parent="SubViewport/World" unique_id=525117437 instance=ExtResource("11_e3hyu")]
+position = Vector2(-284, -2444)
+
+[node name="Room10" parent="SubViewport/World" unique_id=262469552 instance=ExtResource("10_e3hyu")]
+position = Vector2(0, 1550)
+
+[node name="Room11" parent="SubViewport/World" unique_id=878726543 instance=ExtResource("11_q5onr")]
+position = Vector2(0, 2526)
+
+[node name="Room20" parent="SubViewport/World" unique_id=415131698 instance=ExtResource("12_jhx03")]
+position = Vector2(-2142, 1466)
+
+[node name="Room21" parent="SubViewport/World" unique_id=1803364713 instance=ExtResource("13_o8fc1")]
+position = Vector2(-5862, 46)
+
+[node name="Room30" parent="SubViewport/World" unique_id=1287708404 instance=ExtResource("14_o8fc1")]
+position = Vector2(2944, 2272)
+
+[node name="Room31" parent="SubViewport/World" unique_id=2017545324 instance=ExtResource("15_xo05s")]
+position = Vector2(5116, 22)

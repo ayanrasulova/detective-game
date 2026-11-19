@@ -4,6 +4,18 @@ Where to?
 	$> go_to_room_index(0)
 	=> END
 - 2nd Floor
+	$> go_to_room_index(1)
+	=> END
 - 3rd Floor
+	$> go_to_room_index(2)
+	=> END
 - Nevermind
-=> END
+	=> END
+
+~ door
+Go inside?
+- Yes
+	$> go_to_room()
+	=> END
+- Nevermind
+	=> END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dy1trjrs8b4o0"
+path="res://.godot/imported/second_floor.dialogue-ca307fdaf3de22fd23b8b1794909182b.tres"
+
+[deps]
+
+source_file="res://dialogue/second_floor.dialogue"
+dest_files=["res://.godot/imported/second_floor.dialogue-ca307fdaf3de22fd23b8b1794909182b.tres"]
+
+[params]
+
+defaults=true
