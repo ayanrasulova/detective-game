@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1qatvolylmnb"]
 
-[ext_resource type="Texture2D" uid="uid://bsysw55eixf5h" path="res://sprites/world/hallway.png" id="1_xb2ao"]
+[ext_resource type="Texture2D" uid="uid://dwjsubhwreepj" path="res://sprites/world/hallways/hallwayfloor3.png" id="1_80kjo"]
 [ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="2_r08ie"]
 [ext_resource type="Script" uid="uid://tcicldp46syy" path="res://scripts/room_point.gd" id="3_ukbmq"]
 [ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="4_suy52"]
@@ -16,11 +16,11 @@ size = Vector2(46, 149)
 [sub_resource type="CircleShape2D" id="CircleShape2D_7pru3"]
 radius = 10.429995
 
-[node name="FirstFloor" type="Node2D" unique_id=2083813813]
+[node name="ThirdFloor" type="Node2D" unique_id=2083813813]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1196441373]
 position = Vector2(160, 91)
-texture = ExtResource("1_xb2ao")
+texture = ExtResource("1_80kjo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=1553762795]
 
