@@ -6,15 +6,48 @@
 [ext_resource type="Script" uid="uid://d4gjfap3lnyfn" path="res://scripts/interactable.gd" id="3_5tstl"]
 [ext_resource type="Texture2D" uid="uid://m48klnefdbhd" path="res://sprites/world/flood_light.png" id="4_5tstl"]
 [ext_resource type="Resource" uid="uid://bchpb50ydxl0b" path="res://dialogue/dumpster.dialogue" id="4_lt7nq"]
+[ext_resource type="Texture2D" uid="uid://bvgc6cdwpexte" path="res://sprites/world/smoke_1.png" id="5_f6t8w"]
+[ext_resource type="Shader" uid="uid://bom7uc5gcs67j" path="res://shaders/scroll_texture.gdshader" id="5_q88vh"]
 [ext_resource type="Resource" uid="uid://kfq7orhnja67" path="res://dialogue/outside.dialogue" id="5_v7x2m"]
 [ext_resource type="Texture2D" uid="uid://51lffg54eu4s" path="res://sprites/world/outdoors_bg.png" id="6_cdqji"]
+[ext_resource type="Texture2D" uid="uid://15rwgj1god21" path="res://sprites/world/smoke_2.png" id="7_wket6"]
 [ext_resource type="Texture2D" uid="uid://dag6yxa00jscc" path="res://sprites/world/outdoors_bg_2.png" id="7_x3una"]
+[ext_resource type="AudioStream" uid="uid://cafgr4656v2ql" path="res://sounds/city_ambiance.ogg" id="13_pbe43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtddq"]
 size = Vector2(478.5, 84.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aex8v"]
 size = Vector2(80.75, 126.75)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wtddq"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.1, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 52.97, 1)
+direction = Vector3(-100, 0, 0)
+spread = 0.0
+initial_velocity_min = 28.689999
+initial_velocity_max = 51.51
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.049999997
+color = Color(0.5513578, 0.55135787, 0.5513578, 0.16078432)
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(2.84, 6.61, 0)
+turbulence_influence_min = 0.024
+turbulence_influence_max = 0.15300001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aex8v"]
+shader = ExtResource("5_q88vh")
+shader_parameter/speed = 0.025
+shader_parameter/gap = 0.498000023655
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wket6"]
+shader = ExtResource("5_q88vh")
+shader_parameter/speed = 0.03
+shader_parameter/gap = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5751"]
 radius = 19.736534
@@ -39,6 +72,7 @@ position = Vector2(157.75, 112.75)
 texture = ExtResource("1_uaw8k")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Foreground" unique_id=618961487]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/StaticBody2D" unique_id=1425181322]
 position = Vector2(26.25, 77.25)
@@ -99,6 +133,32 @@ color = Color(1, 0.8646667, 0.71000004, 1)
 energy = 0.3
 texture = ExtResource("4_5tstl")
 offset = Vector2(-10.795, 0)
+
+[node name="SmokeParticles" type="GPUParticles2D" parent="Foreground" unique_id=1545750609]
+position = Vector2(163.25, 62.25)
+amount = 30
+texture = ExtResource("2_lt5my")
+lifetime = 10.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_wtddq")
+
+[node name="ScrollingSmoke" type="Sprite2D" parent="Foreground" unique_id=335371904]
+self_modulate = Color(0.014999998, 0.07875001, 0.1, 0.16862746)
+z_index = 99
+texture_repeat = 3
+material = SubResource("ShaderMaterial_aex8v")
+position = Vector2(53.25, 47.25)
+scale = Vector2(2.2129033, 1.059322)
+texture = ExtResource("5_f6t8w")
+
+[node name="ScrollingSmoke2" type="Sprite2D" parent="Foreground" unique_id=2043057425]
+self_modulate = Color(0, 0, 0, 0.16862746)
+z_index = 99
+texture_repeat = 3
+material = SubResource("ShaderMaterial_wket6")
+position = Vector2(-11.75, 73.24999)
+scale = Vector2(1.2870969, 1.0889832)
+texture = ExtResource("7_wket6")
 
 [node name="Dumpster" type="Node2D" parent="." unique_id=1563033974]
 position = Vector2(223.75, 116.25)
@@ -177,6 +237,7 @@ position = Vector2(182.25, 105.25)
 texture = ExtResource("7_x3una")
 
 [node name="Border" type="Node2D" parent="." unique_id=580691952]
+z_index = 99
 
 [node name="ColorRect" type="ColorRect" parent="Border" unique_id=302839570]
 offset_left = -73.5
@@ -208,3 +269,9 @@ offset_right = 1.0
 offset_bottom = 361.0
 pivot_offset = Vector2(279.25, 144.25)
 color = Color(0.07058824, 0.047058824, 0.047058824, 1)
+
+[node name="CityAmbiance" type="AudioStreamPlayer" parent="." unique_id=1393250539]
+stream = ExtResource("13_pbe43")
+autoplay = true
+bus = &"City Ambiance"
+parameters/looping = true

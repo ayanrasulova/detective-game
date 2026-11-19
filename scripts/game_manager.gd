@@ -1,7 +1,12 @@
 extends Node
 var player : Player;
 
+#for city ambiance sound
+@onready var city_ambiance_bus: int = AudioServer.get_bus_index("City Ambiance")
+@onready var city_ambiance_lowpass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(city_ambiance_bus, 0)
+
 var room_locations : Dictionary[RoomPoint.RoomPoints, Vector2] = {};
+var last_room_point : RoomPoint.RoomPoints = RoomPoint.RoomPoints.OutsideSpawn;
 
 func _ready() -> void:
 	await get_tree().root.ready;
@@ -31,3 +36,27 @@ func go_to_room(point : RoomPoint.RoomPoints) -> void:
 	#see if there's a room name to display
 	if RoomPoint.ROOM_NAMES_BY_POINT.has(point):
 		UI.show_room_indicator(RoomPoint.ROOM_NAMES_BY_POINT[point]);
+	
+	#when we go inside from outside or outside from inside, we change the lowpass on the city ambiance sound
+	if (last_room_point == RoomPoint.RoomPoints.OutsideSpawn or last_room_point == RoomPoint.RoomPoints.OutsideDoor and
+		point == RoomPoint.RoomPoints.FirstFloorCenter):
+		muffle_city_ambiance(true);
+	elif (last_room_point != RoomPoint.RoomPoints.OutsideSpawn or last_room_point != RoomPoint.RoomPoints.OutsideDoor and 
+		point == RoomPoint.RoomPoints.OutsideDoor):
+		muffle_city_ambiance(false);
+	
+	
+	last_room_point = point;
+
+func muffle_city_ambiance(muffled : bool) -> void:
+	var target_hz: float = 600.0 if muffled else 20500.0
+	var tween := create_tween()
+	
+	if muffled:
+		AudioServer.set_bus_effect_enabled(city_ambiance_bus, 0, true)
+
+	tween.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(city_ambiance_lowpass, "cutoff_hz", target_hz, 1)
+	
+	if not muffled:
+		tween.tween_callback(AudioServer.set_bus_effect_enabled.bind(city_ambiance_bus, 0, false))
