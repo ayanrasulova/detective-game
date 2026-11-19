@@ -227,6 +227,72 @@ range_z_max = -10
 texture = ExtResource("2_lt5my")
 texture_scale = 0.5
 
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1555715643]
+z_index = -50
+texture_filter = 1
+position = Vector2(499, 105.25)
+texture = ExtResource("6_cdqji")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Sprite2D2" unique_id=306006169]
+position = Vector2(76.25, -52)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background/Sprite2D2" unique_id=150600586]
+position = Vector2(2, -50.5)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background/Sprite2D2" unique_id=1885906788]
+position = Vector2(46.75, -20.25)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.2
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=1100372958]
+z_index = -50
+texture_filter = 1
+position = Vector2(-153, 105.25)
+texture = ExtResource("6_cdqji")
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Sprite2D3" unique_id=440877400]
+position = Vector2(76.25, -52)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background/Sprite2D3" unique_id=1723592181]
+position = Vector2(2, -50.5)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.4
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="Background/Sprite2D3" unique_id=1610097624]
+position = Vector2(46.75, -20.25)
+color = Color(1, 0.94, 0.76, 1)
+energy = 0.2
+range_z_min = -100
+range_z_max = -10
+texture = ExtResource("2_lt5my")
+texture_scale = 0.5
+
 [node name="Background2" type="Parallax2D" parent="." unique_id=1538284050]
 scroll_scale = Vector2(0.1, 0.1)
 
@@ -234,6 +300,18 @@ scroll_scale = Vector2(0.1, 0.1)
 z_index = -100
 texture_filter = 1
 position = Vector2(182.25, 105.25)
+texture = ExtResource("7_x3una")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background2" unique_id=1299421279]
+z_index = -100
+texture_filter = 1
+position = Vector2(502, 105.25)
+texture = ExtResource("7_x3una")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background2" unique_id=947885319]
+z_index = -100
+texture_filter = 1
+position = Vector2(-137, 105.25)
 texture = ExtResource("7_x3una")
 
 [node name="Border" type="Node2D" parent="." unique_id=580691952]
@@ -273,5 +351,4 @@ color = Color(0.07058824, 0.047058824, 0.047058824, 1)
 [node name="CityAmbiance" type="AudioStreamPlayer" parent="." unique_id=1393250539]
 stream = ExtResource("13_pbe43")
 autoplay = true
-bus = &"City Ambiance"
 parameters/looping = true
