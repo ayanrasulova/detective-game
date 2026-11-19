@@ -26,6 +26,7 @@ signal response_selected(response: Variant)
 ## Hide any responses where [code]is_allowed[/code] is false
 @export var hide_failed_responses: bool = false
 
+
 ## The list of dialogue responses.
 var responses: Array = []:
 	set(value):

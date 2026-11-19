@@ -47,6 +47,7 @@ var dialogue_line: DialogueLine:
 			# The dialogue has finished so close the balloon
 			if owner == null:
 				balloon_animation_player.play("disappear");
+				responses_animation_player.play("disappear");
 				await balloon_animation_player.animation_finished;
 				UI.dialogue_balloon_visible = false;
 				queue_free()
@@ -75,6 +76,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 @onready var balloon_animation_player: AnimationPlayer = $Balloon/AnimationPlayer
+@onready var responses_animation_player: AnimationPlayer = $Balloon/ResponsesAnimationPlayer
 
 
 func _ready() -> void:
@@ -165,6 +167,7 @@ func apply_dialogue_line() -> void:
 	elif dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
+		responses_animation_player.play("reveal");
 		responses_menu.focus_first_item()
 	elif dialogue_line.time != "":
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()

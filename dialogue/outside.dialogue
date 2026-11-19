@@ -5,3 +5,11 @@ Go inside?
 	=> END
 - Nevermind
 => END
+
+~ dumpster
+You: Yes. [wait="ui_accept"]This is a dumpster.
+- Jump inside
+	You: ...Not doing that.
+	=> END
+- Nevermind
+	=> END
