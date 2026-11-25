@@ -13,3 +13,16 @@ You: Yes. [wait="ui_accept"]This is a dumpster.
 	=> END
 - Nevermind
 	=> END
+	
+# At the start of the game before anything else, you wake up in a dumpster and in your hungover haze,
+# you have no clue why you were here
+~ wake_up
+You: I came here... [wait=1] for a reason... [wait=2] which was to...
+	
+
+#This is when Ollie throws the newspaper
+~ newspaper_smack
+You: Hey what the hell!
+Boy on Bike: Read it dummy!
+You: What ever happened to basic human decency-
+You: Oh ya, that's why I'm here.
