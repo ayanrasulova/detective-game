@@ -27,6 +27,7 @@ Boy on Bike: Read it dummy!
 # ANIMATION: Show headline of newspaper, mentioning the murder you're here to investigate
 You: What ever happened to basic human decency- 
 You: Oh ya, that's why I'm here.
+# ANIMATION: return to normal view
 
 # If you chose to talk to the super who's working outside
 ~ super_outside
@@ -37,3 +38,14 @@ You: It's a doggy dog world out there.
 Super: You mean dog eat dog?
 You: Why would they do that? That's disgusting.
 Super: nevermind...
+=> crime_scene_question
+
+~ crime_scene_question
+- Ask where the crime happened
+	You: Where did the dogs eat the other dogs?
+	Super: If you're talking about where the body was found, it's room 11, first floor on the left.
+	# I set it up like this cuz so that the user can repeat dialogue
+	# TODO: set a conditional so that dialogue goes straight to here if you re-interact? 
+	=> crime_scene_question 
+- Leave
+	=> END
