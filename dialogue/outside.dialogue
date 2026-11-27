@@ -24,5 +24,16 @@ You: I came here... [wait=1] for a reason... [wait=2] which was to...
 ~ newspaper_smack
 You: Hey what the hell!
 Boy on Bike: Read it dummy!
-You: What ever happened to basic human decency-
+# ANIMATION: Show headline of newspaper, mentioning the murder you're here to investigate
+You: What ever happened to basic human decency- 
 You: Oh ya, that's why I'm here.
+
+# If you chose to talk to the super who's working outside
+~ super_outside
+Super: Never thought something like this could happen in [i]my[/i] building.
+You: It's a doggy dog world out there.
+Super: What?
+You: It's a doggy dog world out there.
+Super: You mean dog eat dog?
+You: Why would they do that? That's disgusting.
+Super: nevermind...
