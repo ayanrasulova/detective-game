@@ -2,7 +2,10 @@ extends Node
 var player : Player;
 
 
-@export var collected : Dictionary[Evidence.Enum, bool];
+@export var all_items : Dictionary[GameTypes.Items, Item];
+@export var collected_items : Dictionary[GameTypes.Items, bool];
+
+@export var collected_evidence : Dictionary[Evidence.Enum, bool];
 @export var all_evidence: Dictionary[Evidence.Enum, Evidence];
 
 #for city ambiance sound
@@ -15,7 +18,11 @@ var last_room_point : RoomPoint.RoomPoints = RoomPoint.RoomPoints.OutsideSpawn;
 
 signal evidence_collected;
 signal journal_opened;
+signal new_evidence_viewed;
 var selecting_evidence : bool = false;
+
+func viewed_new_evidence() -> void:
+	new_evidence_viewed.emit();
 
 func _ready() -> void:
 	await get_tree().root.ready;
@@ -28,26 +35,35 @@ func _ready() -> void:
 		var rp := point as RoomPoint;
 		room_locations[rp.location_index] = rp.global_position;
 
-func collect_evidence(id : Evidence.Enum) -> void:
-	if collected.has(id):
+func collect_item(id : GameTypes.Items) -> void:
+	if collected_items.has(id):
 		return;
-	collected[id] = true;
+	collected_items[id] = true;
+	evidence_collected.emit();
+
+func has_item(id : GameTypes.Items) -> bool:
+	return collected_items.has(id);
+
+func get_collected_items() -> Array[Item]:
+	var result : Array[Item] = [];
+	for id in collected_items:
+		result.append(all_items[id]);
+	return result;
+
+func collect_evidence(id : Evidence.Enum) -> void:
+	if collected_evidence.has(id):
+		return;
+	collected_evidence[id] = true;
 	evidence_collected.emit();
 
 func has_evidence(id : Evidence.Enum) -> bool:
-	return collected.has(id);
+	return collected_evidence.has(id);
 
 func get_collected_evidence() -> Array[Evidence]:
 	var result : Array[Evidence] = [];
-	for id in collected:
+	for id in collected_evidence:
 		result.append(all_evidence[id]);
 	return result;
-
-func add_evidence(evidence : Evidence.Enum ):
-	var item : Evidence = all_evidence.get(evidence);
-	collected.set(evidence, item);
-	item.new = true;
-	pass;
 
 func teleport_player_to_room_point(point : RoomPoint.RoomPoints) -> void:
 	player.global_position = room_locations[point];

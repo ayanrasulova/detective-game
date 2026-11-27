@@ -225,6 +225,7 @@ offset_bottom = 943.0
 texture = ExtResource("4_gdt2y")
 
 [node name="Suspects" type="Control" parent="Journal/TextureRect" unique_id=822666440]
+visible = false
 anchors_preset = 0
 offset_left = -230.0
 offset_top = -143.0
@@ -419,7 +420,6 @@ text = "notes"
 horizontal_alignment = 1
 
 [node name="Items" type="Control" parent="Journal/TextureRect" unique_id=256924491]
-visible = false
 anchors_preset = 0
 offset_left = -230.0
 offset_top = -143.0
@@ -440,15 +440,15 @@ text = "items"
 
 [node name="Notes" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=797992205]
 layout_mode = 0
-offset_left = 894.0
+offset_left = 845.0
 offset_top = 209.0
-offset_right = 1310.0
+offset_right = 1261.0
 offset_bottom = 310.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
 theme_override_fonts/normal_font = ExtResource("3_yev5y")
 theme_override_font_sizes/normal_font_size = 36
-text = "notes"
+text = "item info"
 
 [node name="Info" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=433992233]
 z_index = 2
@@ -459,10 +459,14 @@ offset_top = 285.0
 offset_right = 1133.0
 offset_bottom = 869.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.26666668)
 theme_override_fonts/normal_font = ExtResource("3_yev5y")
 theme_override_font_sizes/normal_font_size = 24
-text = "-test info"
+text = "an envelope torn in half, found on the body of the victim. inside is a letter. some of the words are still intact:
+
+\"tonight ___ finish this. meet me _____.
+
+-F____\" "
 fit_content = true
 scroll_active = false
 
@@ -480,6 +484,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7dvkv")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ItemsContainer" type="GridContainer" parent="Journal/TextureRect/Items" unique_id=131706721]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 277.0
+offset_right = 708.0
+offset_bottom = 850.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
 
 [node name="LBPrompt" type="TextureRect" parent="Journal" unique_id=1537980143]
 layout_mode = 0

@@ -20,3 +20,10 @@ const SUSPECT_NAMES : Dictionary[Suspects, String] = {
 	Suspects.Super: "The Superintendent",
 	Suspects.Ollie: "Ollie Lollipop"	
 }
+
+enum Items {
+		Button,
+		BulletShell,
+		Coat,
+		Envelope
+	}

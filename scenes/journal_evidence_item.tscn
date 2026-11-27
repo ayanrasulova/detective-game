@@ -32,7 +32,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_gntsj")
 text = "super important piece of information that may or may not be improtant ni the future."
 fit_content = true
 script = ExtResource("2_pc4ii")
-selected_color = Color(0.2, 0.14666668, 0, 0.7254902)
+selected_color = Color(0.2, 0.14509805, 0, 0.7254902)
 unselected_color = Color(0, 0, 0, 0.7137255)
 
 [node name="Panel" type="Panel" parent="." unique_id=906994955]

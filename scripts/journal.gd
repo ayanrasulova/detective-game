@@ -1,6 +1,8 @@
 extends Control
 
 const JOURNAL_EVIDENCE_ITEM = preload("uid://cm1itas2dmo8k")
+const JOURNAL_ITEM = preload("uid://cir5h4q722nww")
+
 
 enum BumperButtonPrompts {
 		Left,
@@ -19,8 +21,12 @@ var current_page : Page = Page.Suspects;
 @onready var lb_prompt: TextureRect = $LBPrompt
 @onready var rb_prompt: TextureRect = $RBPrompt
 
-
+ 
 @onready var items: Control = $TextureRect/Items
+@onready var items_container: GridContainer = $TextureRect/Items/ItemsContainer
+@onready var info: RichTextLabel = $TextureRect/Items/Info
+
+
 
 @onready var suspects: Control = $TextureRect/Suspects
 var viewing_suspect_notes : bool = false;
@@ -44,6 +50,17 @@ func _on_visibility_changed() -> void:
 		current_page = Page.Suspects;
 	if visible:
 		#when the journal opens
+		#populate the items grid
+		for item in items_container.get_children():
+			item.queue_free();
+		await get_tree().process_frame;
+
+		for item : Item in GameManager.get_collected_items():
+			var spawn : JournalItem = JOURNAL_ITEM.instantiate();
+			spawn.associated_item = item;
+			items_container.add_child(spawn);
+			spawn.texture = item.texture;
+			if not item.new: spawn.exclamation.hide();
 		reset_to_suspects_page();
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -121,6 +138,8 @@ func reset_to_suspects_page() -> void:
 func reset_to_items_page() -> void:
 	set_bumper_button_prompts(BumperButtonPrompts.Both);
 	current_page = Page.Items;
+	if items_container.get_child_count() > 0:
+		items_container.get_child(0).grab_focus();
 	pass;
 
 func populate_suspect_notes_list(suspect : GameTypes.Suspects) -> void:

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cir5h4q722nww"]
+
+[ext_resource type="Texture2D" uid="uid://5ndaoef8w1lc" path="res://sprites/ui/drawings/test3.png" id="1_e56dt"]
+[ext_resource type="Script" uid="uid://3ponqtqh4a4w" path="res://scripts/journal_item.gd" id="2_j0gnh"]
+[ext_resource type="Texture2D" uid="uid://dqe42de2hmk2o" path="res://sprites/ui/evidence_button.png" id="2_uyxvg"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="4_j0gnh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iec6v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[node name="TextureRect" type="TextureRect" unique_id=708245386]
+z_index = 5
+focus_mode = 2
+texture = ExtResource("1_e56dt")
+script = ExtResource("2_j0gnh")
+SELECTED_PANEL_COLOR = Color(0.2, 0.14509805, 0, 0.7254902)
+UNSELECTED_PANEL_COLOR = Color(0, 0, 0, 0.7137255)
+
+[node name="Panel" type="Panel" parent="." unique_id=2063738777]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iec6v")
+
+[node name="ButtonPrompt" type="TextureRect" parent="." unique_id=243971997]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_uyxvg")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Exclamation" type="RichTextLabel" parent="." unique_id=354312113]
+z_index = 10
+layout_mode = 0
+offset_left = 63.0
+offset_top = -43.0
+offset_right = 200.0
+offset_bottom = 64.000046
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("4_j0gnh")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false

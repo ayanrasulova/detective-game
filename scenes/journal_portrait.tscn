@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dnktkrcatrbl3" path="res://sprites/portraits/grandma.png" id="1_s2m6r"]
 [ext_resource type="Script" uid="uid://dxij55o06x20e" path="res://scripts/journal_portrait.gd" id="2_kkc37"]
 [ext_resource type="Texture2D" uid="uid://dqe42de2hmk2o" path="res://sprites/ui/evidence_button.png" id="2_vlpis"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="4_kkc37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dvkv"]
 bg_color = Color(1, 0.7666667, 0, 0.4745098)
@@ -47,3 +48,20 @@ grow_vertical = 0
 texture = ExtResource("2_vlpis")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Exclamation" type="RichTextLabel" parent="." unique_id=2056943495]
+z_index = 10
+layout_mode = 0
+offset_left = 87.0
+offset_top = 66.0
+offset_right = 224.0
+offset_bottom = 173.00005
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("4_kkc37")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false

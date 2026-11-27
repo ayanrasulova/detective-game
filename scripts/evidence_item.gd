@@ -22,7 +22,9 @@ func _ready() -> void:
 
 func _on_focus_changed() -> void:
 	if has_focus():
-		associated_evidence.new = false;
+		if associated_evidence.new:
+			associated_evidence.new = false;
+			GameManager.viewed_new_evidence();
 		backing_panel.modulate = selected_color;
 		var tween = create_tween(); #hide the exclamation point when the user hovers over the evidence
 		tween.tween_property(exclamation, "modulate:a", 0, 0.5);

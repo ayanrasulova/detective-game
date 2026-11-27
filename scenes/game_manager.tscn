@@ -2,8 +2,40 @@
 
 [ext_resource type="Script" uid="uid://buwboxonh4lxs" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="Script" uid="uid://cg42fvh3furfu" path="res://scripts/evidence.gd" id="2_glms7"]
+[ext_resource type="Script" uid="uid://dqd8mtujwqqo3" path="res://scripts/item.gd" id="2_oo155"]
+[ext_resource type="Texture2D" uid="uid://djot3r1a0pea" path="res://sprites/ui/drawings/test4.png" id="3_eaq8r"]
+[ext_resource type="Texture2D" uid="uid://bx1tmbslwacwj" path="res://sprites/ui/drawings/test1.png" id="4_eaq8r"]
+[ext_resource type="Texture2D" uid="uid://cxsng2ex7ueba" path="res://sprites/ui/drawings/test2.png" id="5_ternb"]
+[ext_resource type="Texture2D" uid="uid://5ndaoef8w1lc" path="res://sprites/ui/drawings/test3.png" id="6_q8mjp"]
+
+[sub_resource type="Resource" id="Resource_iec6v"]
+script = ExtResource("2_oo155")
+description = "this is a button found in room wehateverj alsdkfj ;alsdkfj; lasjdf;l aksjdf;l kjas;lkdfj ;laskdjf;laskjdf;laksjdf"
+texture = ExtResource("3_eaq8r")
+metadata/_custom_type_script = "uid://dqd8mtujwqqo3"
 
 [sub_resource type="Resource" id="Resource_glms7"]
+script = ExtResource("2_oo155")
+description = "this is a bullet shell found in room whatever, the scene of the crime."
+metadata/_custom_type_script = "uid://dqd8mtujwqqo3"
+
+[sub_resource type="Resource" id="Resource_q8mjp"]
+script = ExtResource("2_oo155")
+description = "this is a coat found on the body of the murder victim. it has a hole in the back where the bullet exited the victim's body. dry blood stains are splattered along its surface."
+texture = ExtResource("5_ternb")
+metadata/_custom_type_script = "uid://dqd8mtujwqqo3"
+
+[sub_resource type="Resource" id="Resource_jdad8"]
+script = ExtResource("2_oo155")
+description = "an envelope torn in half, found on the body of the victim. inside is a letter. some of the words are still intact:
+
+\"tonight ___ finish this. meet me _____.
+
+-F____\" "
+texture = ExtResource("6_q8mjp")
+metadata/_custom_type_script = "uid://dqd8mtujwqqo3"
+
+[sub_resource type="Resource" id="Resource_ternb"]
 script = ExtResource("2_glms7")
 evidence_string_description = "this grandma has a gun."
 metadata/_custom_type_script = "uid://cg42fvh3furfu"
@@ -21,13 +53,25 @@ metadata/_custom_type_script = "uid://cg42fvh3furfu"
 
 [node name="GameManager" type="Node" unique_id=237939849]
 script = ExtResource("1_hwd4i")
-collected = Dictionary[int, bool]({
+all_items = Dictionary[int, ExtResource("2_oo155")]({
+0: SubResource("Resource_iec6v"),
+1: SubResource("Resource_glms7"),
+2: SubResource("Resource_q8mjp"),
+3: SubResource("Resource_jdad8")
+})
+collected_items = Dictionary[int, bool]({
+0: true,
+1: true,
+2: true,
+3: true
+})
+collected_evidence = Dictionary[int, bool]({
 0: true,
 1: true,
 2: true
 })
 all_evidence = Dictionary[int, ExtResource("2_glms7")]({
-0: SubResource("Resource_glms7"),
+0: SubResource("Resource_ternb"),
 1: SubResource("Resource_oo155"),
 2: SubResource("Resource_udu3i")
 })
