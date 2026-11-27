@@ -7,9 +7,8 @@ Go inside?
 => END
 
 ~ dumpster
-You: Yes. [wait="ui_accept"]This is a dumpster.
-- Jump inside
-	You: ...Not doing that.
+Grandma: Hi, sonny. What do you need?
+- Present Evidence
 	=> END
 - Nevermind
 	=> END

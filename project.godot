@@ -15,6 +15,10 @@ run/main_scene="uid://n6x4r0tncpp3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://hq1n558dq2x"
+
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
@@ -58,7 +62,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/dumpster.dialogue", "res://dialogue/outside.dialogue", "res://dialogue/first_floor.dialogue", "res://dialogue/second_floor.dialogue", "res://dialogue/third_floor.dialogue", "res://dialogue/room10.dialogue", "res://dialogue/room11.dialogue", "res://dialogue/room20.dialogue", "res://dialogue/room21.dialogue", "res://dialogue/room30.dialogue", "res://dialogue/room31.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/outside.dialogue", "res://dialogue/first_floor.dialogue", "res://dialogue/second_floor.dialogue", "res://dialogue/third_floor.dialogue", "res://dialogue/room10.dialogue", "res://dialogue/room11.dialogue", "res://dialogue/room20.dialogue", "res://dialogue/room21.dialogue", "res://dialogue/room30.dialogue", "res://dialogue/room31.dialogue")
 
 [physics]
 

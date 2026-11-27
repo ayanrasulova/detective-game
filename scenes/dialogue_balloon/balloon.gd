@@ -23,6 +23,9 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+@onready var portrait : TextureRect = %Portrait
+
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -142,6 +145,18 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue") + ":";
+
+	var portrait_path : String = "res://sprites/portraits/";
+	if not dialogue_line.character.is_empty():
+		portrait_path += dialogue_line.character.to_lower();
+	else:
+		portrait_path += "detective";
+	var portrait_modifier : String = dialogue_line.get_tag_value("portrait");
+	if not portrait_modifier.is_empty():
+		portrait_path += "_%s" % portrait_modifier;
+	portrait_path += ".png";
+
+	portrait.texture = load(portrait_path);
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

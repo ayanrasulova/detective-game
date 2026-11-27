@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_1j1j0"]
 [ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="5_cp45b"]
 [ext_resource type="Texture2D" uid="uid://ds3de55qd0f1h" path="res://sprites/ui/folder_backing.png" id="5_t4lio"]
-[ext_resource type="Texture2D" uid="uid://cawcr4wmgycmq" path="res://sprites/portraits/you.png" id="7_yvd1d"]
+[ext_resource type="Texture2D" uid="uid://c3hnposfdvgmj" path="res://sprites/portraits/you.png" id="7_lnfrs"]
 [ext_resource type="Script" uid="uid://5c6nkxfagtpr" path="res://scripts/responses_button.gd" id="9_lnfrs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_235ry"]
@@ -205,34 +205,10 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("FrontFolder/TextureRect:position")
+tracks/5/path = NodePath("FrontFolder:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(517, -6)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("FrontFolder/TextureRect:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("FrontFolder:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -302,30 +278,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(-279, 1149), Vector2(-157.08333, 741.08325), Vector2(-146, 703.99994)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("FrontFolder/TextureRect:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(517, -6), Vector2(511.0109, -29.955868), Vector2(509.39804, -31.32891), Vector2(507, -45.999992)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("FrontFolder/TextureRect:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_lljus"]
@@ -583,22 +535,15 @@ polygon = PackedVector2Array(0, 0, 2.5, 3, 5, 0)
 libraries/ = SubResource("AnimationLibrary_6b6c8")
 autoplay = &"progress"
 
-[node name="Portrait" type="TextureRect" parent="Balloon/FrontFolder" unique_id=128480551]
+[node name="Portrait" type="TextureRect" parent="Balloon/FrontFolder" unique_id=1576792479]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 541.0
-offset_top = -466.0
-offset_right = 581.0
-offset_bottom = -426.0
-
-[node name="TextureRect" type="TextureRect" parent="Balloon/FrontFolder" unique_id=1576792479]
-layout_mode = 0
-offset_left = 517.0
-offset_top = -6.0
-offset_right = 935.0
-offset_bottom = 412.0
+offset_left = 531.0
+offset_top = -68.0
+offset_right = 987.0
+offset_bottom = 388.0
 pivot_offset = Vector2(205.59354, 414.028)
-texture = ExtResource("7_yvd1d")
+texture = ExtResource("7_lnfrs")
 expand_mode = 1
 stretch_mode = 4
 

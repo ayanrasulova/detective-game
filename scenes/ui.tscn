@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://u7bxpik3dv5b" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://bw4vddw5d20xp" path="res://sprites/ui/folder_back_slim.png" id="2_x4jx1"]
 [ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="3_yev5y"]
+[ext_resource type="Texture2D" uid="uid://ddxv2f7ylqboy" path="res://sprites/ui/journal.png" id="4_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://wlnrbae31ahs" path="res://sprites/ui/lb.png" id="5_8dubc"]
+[ext_resource type="Texture2D" uid="uid://cduxt70a2kpuh" path="res://sprites/ui/portrait_test.png" id="5_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://d1mriynljiw80" path="res://sprites/ui/rb.png" id="6_p7vwb"]
 
 [sub_resource type="Animation" id="Animation_nt7q6"]
 length = 0.001
@@ -183,3 +187,222 @@ visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RoomIndicator" unique_id=211571800]
 libraries/ = SubResource("AnimationLibrary_8dubc")
+
+[node name="Journal" type="Control" parent="." unique_id=719503847]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal" unique_id=554796242]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 143.0
+offset_right = 1230.0
+offset_bottom = 943.0
+texture = ExtResource("4_gdt2y")
+
+[node name="Suspects" type="Control" parent="Journal/TextureRect" unique_id=822666440]
+visible = false
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -143.0
+offset_right = -190.0
+offset_bottom = -103.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Journal/TextureRect/Suspects" unique_id=1202597279]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 209.0
+offset_right = 820.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "supsects"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Journal/TextureRect/Suspects" unique_id=183233727]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 209.0
+offset_right = 1269.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "notes"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Journal/TextureRect/Suspects" unique_id=367320105]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 260.0
+offset_right = 1169.0
+offset_bottom = 361.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "notes"
+
+[node name="GridContainer" type="GridContainer" parent="Journal/TextureRect/Suspects" unique_id=168145090]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 257.0
+offset_right = 715.0
+offset_bottom = 872.0
+theme_override_constants/h_separation = 213
+theme_override_constants/v_separation = 213
+columns = 2
+
+[node name="Control" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=414621024]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control" unique_id=513317728]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Control2" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=1842125622]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control2" unique_id=341910512]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Control3" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=1426008712]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control3" unique_id=620750799]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Control4" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=1196299369]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control4" unique_id=672322272]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Control5" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=102929649]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control5" unique_id=1541011754]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Control6" type="Control" parent="Journal/TextureRect/Suspects/GridContainer" unique_id=411983669]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Suspects/GridContainer/Control6" unique_id=1046613927]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+texture = ExtResource("5_p7vwb")
+expand_mode = 2
+
+[node name="Items" type="Control" parent="Journal/TextureRect" unique_id=256924491]
+visible = false
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -143.0
+offset_right = -190.0
+offset_bottom = -103.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=1161216322]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 209.0
+offset_right = 820.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "items"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=797992205]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 209.0
+offset_right = 1269.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "notes"
+
+[node name="GridContainer" type="GridContainer" parent="Journal/TextureRect/Items" unique_id=1690725293]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 257.0
+offset_right = 715.0
+offset_bottom = 872.0
+theme_override_constants/h_separation = 213
+theme_override_constants/v_separation = 213
+columns = 2
+
+[node name="Control" type="Control" parent="Journal/TextureRect/Items/GridContainer" unique_id=301620799]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Items/GridContainer/Control" unique_id=1786708528]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Journal/TextureRect/Items/GridContainer/Control" unique_id=540954210]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 179.0
+offset_right = 154.0
+offset_bottom = 210.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "NAME"
+
+[node name="LBPrompt" type="TextureRect" parent="Journal" unique_id=1537980143]
+self_modulate = Color(1, 1, 1, 0.12941177)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 81.0
+offset_right = 360.0
+offset_bottom = 273.0
+texture = ExtResource("5_8dubc")
+
+[node name="RBPrompt" type="TextureRect" parent="Journal" unique_id=1693663738]
+layout_mode = 0
+offset_left = 1097.0
+offset_top = 81.0
+offset_right = 1291.0
+offset_bottom = 273.0
+texture = ExtResource("6_p7vwb")
