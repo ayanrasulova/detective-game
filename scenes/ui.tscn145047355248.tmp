@@ -1,0 +1,515 @@
+[gd_scene format=3 uid="uid://dxgrnmj1etffm"]
+
+[ext_resource type="Script" uid="uid://u7bxpik3dv5b" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="Texture2D" uid="uid://bw4vddw5d20xp" path="res://sprites/ui/folder_back_slim.png" id="2_x4jx1"]
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="3_yev5y"]
+[ext_resource type="Texture2D" uid="uid://ddxv2f7ylqboy" path="res://sprites/ui/journal.png" id="4_gdt2y"]
+[ext_resource type="Script" uid="uid://cwnlk33pg34oy" path="res://scripts/journal.gd" id="4_vsj0x"]
+[ext_resource type="Texture2D" uid="uid://wlnrbae31ahs" path="res://sprites/ui/lb.png" id="5_8dubc"]
+[ext_resource type="Texture2D" uid="uid://d1mriynljiw80" path="res://sprites/ui/rb.png" id="6_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://xvjm0qe3gjjb" path="res://sprites/ui/back_button.png" id="6_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://b82c2k6j5aeks" path="res://sprites/ui/journal_button.png" id="8_ktti3"]
+[ext_resource type="PackedScene" uid="uid://dtrma626esrdy" path="res://scenes/journal_portrait.tscn" id="9_6rmj2"]
+
+[sub_resource type="Animation" id="Animation_nt7q6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2014.1509, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_x4jx1"]
+resource_name = "enter"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-2014.1509, -0.25, 0, 0, 1095.2028, 115.000244, -0.7, -104.32959, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_yev5y"]
+resource_name = "leave"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(218.00024, -0.25, 0, 0.25, 0, 2487.6155, 0, -2414.634, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yev5y"]
+_data = {
+&"RESET": SubResource("Animation_nt7q6"),
+&"enter": SubResource("Animation_x4jx1"),
+&"leave": SubResource("Animation_yev5y")
+}
+
+[sub_resource type="Animation" id="Animation_gdt2y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(454.00003, -2.9999924)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wm3ai"]
+resource_name = "show"
+length = 3.000008422740549
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.4166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(454.00003, -2.9999924), Vector2(458.00006, 20), Vector2(453.00003, 127), Vector2(456.00006, 76.000015), Vector2(454.00003, 95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.8333333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dubc"]
+_data = {
+&"RESET": SubResource("Animation_gdt2y"),
+&"show": SubResource("Animation_wm3ai")
+}
+
+[node name="UI" type="CanvasLayer" unique_id=838489983]
+layer = 50
+script = ExtResource("1_nt7q6")
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=597830008]
+offset_left = -2014.1509
+offset_top = -1088.2252
+offset_right = 243.6565
+offset_bottom = 1440.0521
+rotation = 0.376106
+color = Color(0, 0, 0, 1)
+
+[node name="TransitionAnimation" type="AnimationPlayer" parent="." unique_id=17785194]
+libraries/ = SubResource("AnimationLibrary_yev5y")
+
+[node name="RoomIndicator" type="TextureRect" parent="." unique_id=1566268766]
+self_modulate = Color(0.5882353, 0.5058824, 0.2901961, 1)
+z_index = 2
+offset_left = 454.00003
+offset_top = -2.9999924
+offset_right = 917.00037
+offset_bottom = 453.00067
+rotation = 3.1499684
+texture = ExtResource("2_x4jx1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RoomIndicator" unique_id=1970198149]
+layout_mode = 0
+offset_left = 399.67282
+offset_top = 78.65525
+offset_right = 761.5751
+offset_bottom = 152.01587
+rotation = 3.1415927
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Second Floor"
+scroll_active = false
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RoomIndicator" unique_id=211571800]
+libraries/ = SubResource("AnimationLibrary_8dubc")
+
+[node name="Journal" type="Control" parent="." unique_id=719503847]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_vsj0x")
+
+[node name="TextureRect" type="TextureRect" parent="Journal" unique_id=554796242]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 143.0
+offset_right = 1230.0
+offset_bottom = 943.0
+texture = ExtResource("4_gdt2y")
+
+[node name="Suspects" type="Control" parent="Journal/TextureRect" unique_id=822666440]
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -143.0
+offset_right = -190.0
+offset_bottom = -103.0
+
+[node name="Notes" type="Control" parent="Journal/TextureRect/Suspects" unique_id=1070729716]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NotesText" type="RichTextLabel" parent="Journal/TextureRect/Suspects/Notes" unique_id=183233727]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 226.0
+offset_right = 1149.0
+offset_bottom = 327.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "notes"
+horizontal_alignment = 1
+
+[node name="SelectText" type="RichTextLabel" parent="Journal/TextureRect/Suspects/Notes" unique_id=1451931520]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 536.0
+offset_right = 1126.0
+offset_bottom = 565.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 24
+text = "select a suspect..."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoEvidenceText" type="RichTextLabel" parent="Journal/TextureRect/Suspects/Notes" unique_id=1682284187]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 737.0
+offset_top = 564.0
+offset_right = 1170.0
+offset_bottom = 593.0
+theme_override_colors/default_color = Color(0.44, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 18
+text = "no evidence collected on this suspect"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EvidenceList" type="VBoxContainer" parent="Journal/TextureRect/Suspects/Notes" unique_id=893982709]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 300.0
+offset_right = 1123.0
+offset_bottom = 822.0
+theme_override_constants/separation = 15
+
+[node name="ExitPrompt" type="TextureRect" parent="Journal/TextureRect/Suspects/Notes" unique_id=548716590]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 696.0
+offset_top = 828.0
+offset_right = 757.0
+offset_bottom = 889.0
+grow_horizontal = 0
+texture = ExtResource("6_vdcm2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Portraits" type="Control" parent="Journal/TextureRect/Suspects" unique_id=2035649112]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Goon" parent="Journal/TextureRect/Suspects/Portraits" unique_id=240190528 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 281.99997
+offset_right = 503.0
+offset_bottom = 527.04736
+rotation = -0.037548263
+focus_neighbor_right = NodePath("../Businessman")
+focus_neighbor_bottom = NodePath("../Fatale")
+focus_next = NodePath("../Businessman")
+focus_mode = 2
+suspect = 3
+
+[node name="Businessman" parent="Journal/TextureRect/Suspects/Portraits" unique_id=268197582 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 261.0
+offset_right = 660.53015
+offset_bottom = 486.67136
+rotation = 0.04401565
+focus_neighbor_left = NodePath("../Goon")
+focus_neighbor_bottom = NodePath("../Super")
+focus_next = NodePath("../Fatale")
+focus_previous = NodePath("../Goon")
+focus_mode = 2
+suspect = 2
+
+[node name="Super" parent="Journal/TextureRect/Suspects/Portraits" unique_id=381919879 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 455.0
+offset_right = 699.8601
+offset_bottom = 717.2677
+rotation = -0.060418397
+focus_neighbor_left = NodePath("../Fatale")
+focus_neighbor_top = NodePath("../Businessman")
+focus_neighbor_bottom = NodePath("../Squatter")
+focus_next = NodePath("../Grandma")
+focus_previous = NodePath("../Fatale")
+focus_mode = 2
+suspect = 5
+
+[node name="Fatale" parent="Journal/TextureRect/Suspects/Portraits" unique_id=562886587 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 369.99994
+offset_top = 462.9999
+offset_right = 549.1929
+offset_bottom = 702.94934
+rotation = 0.12186144
+focus_neighbor_top = NodePath("../Goon")
+focus_neighbor_right = NodePath("../Super")
+focus_neighbor_bottom = NodePath("../Grandma")
+focus_next = NodePath("../Super")
+focus_previous = NodePath("../Businessman")
+focus_mode = 2
+suspect = 1
+
+[node name="Grandma" parent="Journal/TextureRect/Suspects/Portraits" unique_id=86412289 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 315.00003
+offset_top = 664.99994
+offset_right = 471.23874
+offset_bottom = 874.2123
+rotation = -0.054398447
+focus_neighbor_top = NodePath("../Fatale")
+focus_neighbor_right = NodePath("../Squatter")
+focus_next = NodePath("../Squatter")
+focus_previous = NodePath("../Super")
+focus_mode = 2
+suspect = 0
+metadata/_edit_pinned_properties_ = [&"suspect"]
+
+[node name="Squatter" parent="Journal/TextureRect/Suspects/Portraits" unique_id=2082612432 instance=ExtResource("9_6rmj2")]
+layout_mode = 0
+offset_left = 508.00003
+offset_top = 641.0
+offset_right = 664.2388
+offset_bottom = 850.21234
+rotation = 0.18075463
+focus_neighbor_left = NodePath("../Grandma")
+focus_neighbor_top = NodePath("../Super")
+focus_previous = NodePath("../Grandma")
+focus_mode = 2
+suspect = 4
+
+[node name="SuspectsText" type="RichTextLabel" parent="Journal/TextureRect/Suspects" unique_id=1202597279]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 226.0
+offset_right = 827.0
+offset_bottom = 327.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "suspects"
+
+[node name="Items" type="Control" parent="Journal/TextureRect" unique_id=256924491]
+visible = false
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -143.0
+offset_right = -190.0
+offset_bottom = -103.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=1161216322]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 209.0
+offset_right = 820.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "items"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Journal/TextureRect/Items" unique_id=797992205]
+layout_mode = 0
+offset_left = 853.0
+offset_top = 209.0
+offset_right = 1269.0
+offset_bottom = 310.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "notes"
+
+[node name="GridContainer" type="GridContainer" parent="Journal/TextureRect/Items" unique_id=1690725293]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 257.0
+offset_right = 715.0
+offset_bottom = 872.0
+theme_override_constants/h_separation = 213
+theme_override_constants/v_separation = 213
+columns = 2
+
+[node name="Control" type="Control" parent="Journal/TextureRect/Items/GridContainer" unique_id=301620799]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Journal/TextureRect/Items/GridContainer/Control" unique_id=1786708528]
+custom_maximum_size = Vector2(150, 180)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 180.0
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Journal/TextureRect/Items/GridContainer/Control" unique_id=540954210]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 179.0
+offset_right = 154.0
+offset_bottom = 210.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "NAME"
+
+[node name="LBPrompt" type="TextureRect" parent="Journal" unique_id=1537980143]
+self_modulate = Color(1, 1, 1, 0.12941177)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 81.0
+offset_right = 360.0
+offset_bottom = 273.0
+texture = ExtResource("5_8dubc")
+
+[node name="RBPrompt" type="TextureRect" parent="Journal" unique_id=1693663738]
+layout_mode = 0
+offset_left = 1097.0
+offset_top = 81.0
+offset_right = 1291.0
+offset_bottom = 273.0
+texture = ExtResource("6_p7vwb")
+
+[node name="JournalIndicator" type="Control" parent="." unique_id=1155120474]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonPrompt" type="TextureRect" parent="JournalIndicator" unique_id=1542297558]
+z_index = 5
+layout_mode = 0
+offset_left = 1277.0
+offset_top = 20.0
+offset_right = 1427.0
+offset_bottom = 170.0
+texture = ExtResource("8_ktti3")
+
+[node name="Folder" type="TextureRect" parent="JournalIndicator" unique_id=1652627807]
+self_modulate = Color(0.5882353, 0.5058824, 0.2901961, 1)
+z_index = 2
+layout_mode = 0
+offset_left = 1545.0001
+offset_top = 284.0
+offset_right = 2008.0005
+offset_bottom = 740.0007
+rotation = 3.7767866
+texture = ExtResource("2_x4jx1")
+
+[node name="Notification" type="RichTextLabel" parent="JournalIndicator" unique_id=947029734]
+z_index = 10
+layout_mode = 0
+offset_left = 1254.0
+offset_top = 44.0
+offset_right = 1391.0
+offset_bottom = 151.00005
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 98
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false

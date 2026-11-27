@@ -1,12 +1,21 @@
 extends Node
 var player : Player;
 
+
+@export var collected : Dictionary[Evidence.Enum, bool];
+@export var all_evidence: Dictionary[Evidence.Enum, Evidence];
+
 #for city ambiance sound
 @onready var city_ambiance_bus: int = AudioServer.get_bus_index("City Ambiance")
 @onready var city_ambiance_lowpass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(city_ambiance_bus, 0)
 
 var room_locations : Dictionary[RoomPoint.RoomPoints, Vector2] = {};
 var last_room_point : RoomPoint.RoomPoints = RoomPoint.RoomPoints.OutsideSpawn;
+
+
+signal evidence_collected;
+signal journal_opened;
+var selecting_evidence : bool = false;
 
 func _ready() -> void:
 	await get_tree().root.ready;
@@ -19,6 +28,26 @@ func _ready() -> void:
 		var rp := point as RoomPoint;
 		room_locations[rp.location_index] = rp.global_position;
 
+func collect_evidence(id : Evidence.Enum) -> void:
+	if collected.has(id):
+		return;
+	collected[id] = true;
+	evidence_collected.emit();
+
+func has_evidence(id : Evidence.Enum) -> bool:
+	return collected.has(id);
+
+func get_collected_evidence() -> Array[Evidence]:
+	var result : Array[Evidence] = [];
+	for id in collected:
+		result.append(all_evidence[id]);
+	return result;
+
+func add_evidence(evidence : Evidence.Enum ):
+	var item : Evidence = all_evidence.get(evidence);
+	collected.set(evidence, item);
+	item.new = true;
+	pass;
 
 func teleport_player_to_room_point(point : RoomPoint.RoomPoints) -> void:
 	player.global_position = room_locations[point];
@@ -60,3 +89,18 @@ func muffle_city_ambiance(muffled : bool) -> void:
 	
 	if not muffled:
 		tween.tween_callback(AudioServer.set_bus_effect_enabled.bind(city_ambiance_bus, 0, false))
+
+func browse_evidence() -> void:
+	player.can_move = false;
+	selecting_evidence = false;
+	journal_opened.emit();
+	UI.show_journal();
+
+func finish_browsing_evidence() -> void:
+	player.can_move = true;
+	UI.hide_journal();
+
+	
+func select_evidence() -> void:
+	selecting_evidence = true;
+	pass;

@@ -71,6 +71,7 @@ _data = {
 z_index = 99
 layout_mode = 3
 anchors_preset = 0
+focus_mode = 2
 script = ExtResource("1_ouiaj")
 label_offset = Vector2(-1, -20)
 

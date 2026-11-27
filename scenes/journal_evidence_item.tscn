@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cm1itas2dmo8k"]
+
+[ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="1_gntsj"]
+[ext_resource type="Script" uid="uid://cdh217c4kwrt2" path="res://scripts/evidence_item.gd" id="2_pc4ii"]
+[ext_resource type="Texture2D" uid="uid://dqe42de2hmk2o" path="res://sprites/ui/evidence_button.png" id="3_lxfnw"]
+
+[sub_resource type="FontVariation" id="FontVariation_7dvkv"]
+base_font = ExtResource("1_gntsj")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gntsj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iec6v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[node name="Evidence" type="RichTextLabel" unique_id=1836610528]
+z_index = 5
+clip_contents = false
+focus_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_7dvkv")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gntsj")
+text = "super important piece of information that may or may not be improtant ni the future."
+fit_content = true
+script = ExtResource("2_pc4ii")
+selected_color = Color(0.2, 0.14666668, 0, 0.7254902)
+unselected_color = Color(0, 0, 0, 0.7137255)
+
+[node name="Panel" type="Panel" parent="." unique_id=906994955]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iec6v")
+
+[node name="Notification" type="RichTextLabel" parent="." unique_id=1293588393]
+z_index = 10
+layout_mode = 1
+offset_left = -43.0
+offset_top = -23.0
+offset_right = 94.0
+offset_bottom = 84.000046
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("1_gntsj")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false
+
+[node name="SelectPrompt" type="TextureRect" parent="." unique_id=60739471]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1.0
+offset_right = 62.0
+offset_bottom = 61.0
+grow_horizontal = 0
+texture = ExtResource("3_lxfnw")
+expand_mode = 1
+stretch_mode = 4

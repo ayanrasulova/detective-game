@@ -2,11 +2,17 @@ extends CanvasLayer
 
 
 var dialogue_balloon_visible : bool = false;
+var journal_visible : bool = false;
+var selecting_evidence : bool = false;
+
+
 @onready var transition_animation = $TransitionAnimation
 
 
 @onready var room_indicator_label: RichTextLabel = $RoomIndicator/RichTextLabel
 @onready var room_indicator_animation: AnimationPlayer = $RoomIndicator/AnimationPlayer
+
+@onready var journal: Control = $Journal
 
 
 func start_dialogue(dialogue_filename : String) -> void:
@@ -40,4 +46,15 @@ func show_room_indicator(room_name : String) -> void:
 	if room_indicator_animation.is_playing(): room_indicator_animation.stop();
 	room_indicator_label.text = room_name;
 	room_indicator_animation.play("show");
+	pass;
+
+
+func show_journal() -> void:
+	journal.show();
+	journal_visible = true;
+	pass;
+
+func hide_journal() -> void:
+	journal.hide();
+	journal_visible = false;
 	pass;
