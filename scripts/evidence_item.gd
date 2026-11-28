@@ -27,6 +27,7 @@ func _on_focus_changed() -> void:
 			GameManager.viewed_new_evidence();
 		backing_panel.modulate = selected_color;
 		var tween = create_tween(); #hide the exclamation point when the user hovers over the evidence
+		tween.tween_interval(0.2);
 		tween.tween_property(exclamation, "modulate:a", 0, 0.5);
 		tween.play();
 		if GameManager.selecting_evidence:

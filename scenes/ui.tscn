@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://xvjm0qe3gjjb" path="res://sprites/ui/back_button.png" id="6_vdcm2"]
 [ext_resource type="Texture2D" uid="uid://b82c2k6j5aeks" path="res://sprites/ui/journal_button.png" id="8_ktti3"]
 [ext_resource type="PackedScene" uid="uid://dtrma626esrdy" path="res://scenes/journal_portrait.tscn" id="9_6rmj2"]
+[ext_resource type="Script" uid="uid://bmwh81hou1ia4" path="res://scripts/journal_indicator.gd" id="10_vdcm2"]
+[ext_resource type="Script" uid="uid://clefoe3uat7mk" path="res://scripts/collected_evidence_indicator.gd" id="12_6rmj2"]
 
 [sub_resource type="Animation" id="Animation_nt7q6"]
 length = 0.001
@@ -152,7 +154,7 @@ base_font = ExtResource("3_yev5y")
 spacing_glyph = -2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dvkv"]
-bg_color = Color(0, 0, 0, 0.101960786)
+bg_color = Color(0, 0, 0, 0.21960784)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -162,6 +164,44 @@ expand_margin_left = 20.0
 expand_margin_top = 5.0
 expand_margin_right = 20.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="Animation" id="Animation_vdcm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(391.00012, -42)]
+}
+
+[sub_resource type="Animation" id="Animation_6rmj2"]
+resource_name = "reveal"
+length = 3.000008422740549
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.33333334, 2.75, 2.9166667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(437.00012, -37.999996), Vector2(440.00012, 84), Vector2(440.00012, 58), Vector2(440.00012, 64), Vector2(440.00012, 71), Vector2(440.00012, -4), Vector2(440.00012, -59)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsj0x"]
+_data = {
+&"RESET": SubResource("Animation_vdcm2"),
+&"reveal": SubResource("Animation_6rmj2")
+}
 
 [node name="UI" type="CanvasLayer" unique_id=838489983]
 layer = 50
@@ -225,7 +265,6 @@ offset_bottom = 943.0
 texture = ExtResource("4_gdt2y")
 
 [node name="Suspects" type="Control" parent="Journal/TextureRect" unique_id=822666440]
-visible = false
 anchors_preset = 0
 offset_left = -230.0
 offset_top = -143.0
@@ -420,6 +459,7 @@ text = "notes"
 horizontal_alignment = 1
 
 [node name="Items" type="Control" parent="Journal/TextureRect" unique_id=256924491]
+visible = false
 anchors_preset = 0
 offset_left = -230.0
 offset_top = -143.0
@@ -495,6 +535,43 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
 
+[node name="Misc" type="Control" parent="Journal/TextureRect" unique_id=405130454]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Notes" type="RichTextLabel" parent="Journal/TextureRect/Misc" unique_id=54727486]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 50.0
+offset_right = 484.0
+offset_bottom = 151.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 36
+text = "misc. notes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Journal/TextureRect/Misc" unique_id=610828912]
+custom_maximum_size = Vector2(-1, 588)
+layout_mode = 0
+offset_left = 94.0
+offset_top = 135.0
+offset_right = 460.0
+offset_bottom = 723.0
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Journal/TextureRect/Misc" unique_id=2010224649]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 100.0
+offset_right = 903.0
+offset_bottom = 725.0
+theme_override_constants/separation = 15
+
 [node name="LBPrompt" type="TextureRect" parent="Journal" unique_id=1537980143]
 layout_mode = 0
 offset_left = 166.0
@@ -502,6 +579,23 @@ offset_top = 81.0
 offset_right = 360.0
 offset_bottom = 273.0
 texture = ExtResource("5_8dubc")
+
+[node name="Notification" type="RichTextLabel" parent="Journal/LBPrompt" unique_id=396923790]
+z_index = 10
+layout_mode = 0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 161.0
+offset_bottom = 139.00005
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 98
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false
 
 [node name="RBPrompt" type="TextureRect" parent="Journal" unique_id=1693663738]
 layout_mode = 0
@@ -511,11 +605,29 @@ offset_right = 1291.0
 offset_bottom = 273.0
 texture = ExtResource("6_p7vwb")
 
+[node name="Notification" type="RichTextLabel" parent="Journal/RBPrompt" unique_id=925546568]
+z_index = 10
+layout_mode = 0
+offset_left = 25.0
+offset_top = 39.0
+offset_right = 162.0
+offset_bottom = 146.00006
+theme_override_colors/default_color = Color(1, 0.7666667, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 98
+bbcode_enabled = true
+text = "[wave]! "
+scroll_active = false
+
 [node name="JournalIndicator" type="Control" parent="." unique_id=1155120474]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("10_vdcm2")
 
 [node name="ButtonPrompt" type="TextureRect" parent="JournalIndicator" unique_id=1542297558]
 z_index = 5
@@ -553,3 +665,42 @@ theme_override_font_sizes/normal_font_size = 98
 bbcode_enabled = true
 text = "[wave]! "
 scroll_active = false
+
+[node name="CollectedEvidenceIndicator" type="Control" parent="." unique_id=67880387]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_6rmj2")
+
+[node name="sprite" type="TextureRect" parent="CollectedEvidenceIndicator" unique_id=831626535]
+self_modulate = Color(0.5882353, 0.5058824, 0.2901961, 1)
+z_index = 2
+layout_mode = 0
+offset_left = 391.00012
+offset_top = -42.0
+offset_right = 1006.18445
+offset_bottom = 563.8843
+rotation = 3.1499684
+pivot_offset = Vector2(291.943, 15.210363)
+texture = ExtResource("2_x4jx1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CollectedEvidenceIndicator/sprite" unique_id=405299645]
+layout_mode = 0
+offset_left = 556.6589
+offset_top = 76.340324
+offset_right = 1085.5344
+offset_bottom = 149.70094
+rotation = 3.1415927
+theme_override_colors/default_color = Color(1, 0.7647059, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_yev5y")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[wave]found evidence!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollectedEvidenceIndicator" unique_id=574018776]
+libraries/ = SubResource("AnimationLibrary_vsj0x")

@@ -18,6 +18,7 @@ var last_room_point : RoomPoint.RoomPoints = RoomPoint.RoomPoints.OutsideSpawn;
 
 signal evidence_collected;
 signal journal_opened;
+signal journal_closed;
 signal new_evidence_viewed;
 var selecting_evidence : bool = false;
 
@@ -50,6 +51,14 @@ func get_collected_items() -> Array[Item]:
 		result.append(all_items[id]);
 	return result;
 
+func make_item_used_up(id : GameTypes.Items) -> void:
+	if not collected_items.has(id): return;
+	else: all_items.get(id).used_up = true;
+
+func any_unviewed_new_items() -> bool:
+	return not get_collected_items().filter(func(i : Item): return i.new).is_empty();
+
+
 func collect_evidence(id : Evidence.Enum) -> void:
 	if collected_evidence.has(id):
 		return;
@@ -64,6 +73,13 @@ func get_collected_evidence() -> Array[Evidence]:
 	for id in collected_evidence:
 		result.append(all_evidence[id]);
 	return result;
+
+func any_unviewed_new_suspect_evidence() -> bool:
+	return not get_collected_evidence().filter(func(e : Evidence): return e.associated_suspect != GameTypes.Suspects.None and e.new).is_empty();
+
+func any_unviewed_new_misc_evidence() -> bool:
+	return not get_collected_evidence().filter(func(e : Evidence): return e.associated_suspect == GameTypes.Suspects.None and e.new).is_empty();
+
 
 func teleport_player_to_room_point(point : RoomPoint.RoomPoints) -> void:
 	player.global_position = room_locations[point];
@@ -114,6 +130,7 @@ func browse_evidence() -> void:
 
 func finish_browsing_evidence() -> void:
 	player.can_move = true;
+	journal_closed.emit();
 	UI.hide_journal();
 
 	

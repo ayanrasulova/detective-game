@@ -13,19 +13,27 @@ enum BumperButtonPrompts {
 enum Page {
 	Suspects,
 	SuspectNotes,
-	Items
+	Items,
+	Misc
 }
 
 var current_page : Page = Page.Suspects;
 
 @onready var lb_prompt: TextureRect = $LBPrompt
+@onready var lb_exclamation: RichTextLabel = $LBPrompt/Notification
 @onready var rb_prompt: TextureRect = $RBPrompt
+@onready var rb_exclamation: RichTextLabel = $RBPrompt/Notification
 
- 
+
+@onready var misc: Control = $TextureRect/Misc
+@onready var misc_container: VBoxContainer = $TextureRect/Misc/VBoxContainer
+@onready var misc_container_2: VBoxContainer = $TextureRect/Misc/VBoxContainer2
+
+
+
 @onready var items: Control = $TextureRect/Items
-@onready var items_container: GridContainer = $TextureRect/Items/ItemsContainer
+@onready var items_container: GridContainer = $TextureRect/Items/ItemsContainer;
 @onready var info: RichTextLabel = $TextureRect/Items/Info
-
 
 
 @onready var suspects: Control = $TextureRect/Suspects
@@ -48,6 +56,9 @@ func _ready() -> void:
 func _on_visibility_changed() -> void:
 	if not visible:
 		current_page = Page.Suspects;
+		items.hide();
+		misc.hide();
+		suspects.show();
 	if visible:
 		#when the journal opens
 		#populate the items grid
@@ -58,9 +69,13 @@ func _on_visibility_changed() -> void:
 		for item : Item in GameManager.get_collected_items():
 			var spawn : JournalItem = JOURNAL_ITEM.instantiate();
 			spawn.associated_item = item;
+			spawn.info_reference = info;
 			items_container.add_child(spawn);
 			spawn.texture = item.texture;
-			if not item.new: spawn.exclamation.hide();
+			if not item.new:
+				spawn.exclamation.hide();
+			if item.used_up: spawn.check.show();
+			else: spawn.check.hide();
 		reset_to_suspects_page();
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -108,7 +123,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				#moving to items page
 				suspects.hide();
 				items.show();
-				reset_to_items_page();			
+				reset_to_items_page();
 			pass;
 		Page.Items:
 			if event.is_action_pressed("ui_page_up"):
@@ -116,9 +131,50 @@ func _unhandled_input(event: InputEvent) -> void:
 				items.hide();
 				suspects.show();
 				reset_to_suspects_page();
+			elif event.is_action_pressed("ui_page_down"):
+				#move to misc page
+				items.hide();
+				misc.show();
+				reset_to_misc_page();
+			elif event.is_action_pressed("ui_cancel"):
+				#close the journal
+				GameManager.finish_browsing_evidence();
+			pass;
+		Page.Misc:
+			if event.is_action_pressed("ui_page_up"):
+				#move to items page
+				misc.hide();
+				items.show();
+				reset_to_items_page();
+			if event.is_action_pressed("ui_cancel"):
+				#close the journal
+				GameManager.finish_browsing_evidence();
 			pass;
 
 
+func reset_to_misc_page() -> void:
+	current_page = Page.Misc;
+	set_bumper_button_prompts(BumperButtonPrompts.Left);
+	rb_exclamation.hide();
+	if GameManager.any_unviewed_new_items() or GameManager.any_unviewed_new_suspect_evidence(): lb_exclamation.show();
+	else: lb_exclamation.hide();
+	for child in misc_container.get_children():
+		child.queue_free();
+	for child in misc_container_2.get_children():
+		child.queue_free();
+	await get_tree().process_frame;
+
+	var misc_evidence : Array[Evidence] = GameManager.get_collected_evidence().filter(func(e : Evidence): return e.associated_suspect == GameTypes.Suspects.None);
+	for ev in misc_evidence:
+		var spawn : JournalEvidenceItem = JOURNAL_EVIDENCE_ITEM.instantiate();
+		spawn.associated_evidence = ev;
+		misc_container.add_child(spawn);
+		spawn.text = ev.evidence_string_description;
+		if not ev.new: spawn.exclamation.hide();
+
+	if misc_container.get_child_count() > 0:
+		misc_container.get_child(0).grab_focus();
+	
 func reset_to_suspects_page() -> void:
 	current_page = Page.Suspects;
 	for child in portraits.get_children():
@@ -132,14 +188,25 @@ func reset_to_suspects_page() -> void:
 	set_portraits_focusable();
 	suspect_name_text.hide();
 	set_bumper_button_prompts(BumperButtonPrompts.Right);
+	if GameManager.any_unviewed_new_items() or GameManager.any_unviewed_new_misc_evidence():
+		rb_exclamation.show();
+		print("unviewed new items or misc evidence");
+	else: rb_exclamation.hide();
+	lb_exclamation.hide();
 	portraits.get_children()[0].grab_focus();
 	pass;
 
 func reset_to_items_page() -> void:
 	set_bumper_button_prompts(BumperButtonPrompts.Both);
+	if GameManager.any_unviewed_new_suspect_evidence(): lb_exclamation.show();
+	else: lb_exclamation.hide();
+	if GameManager.any_unviewed_new_misc_evidence(): rb_exclamation.show();
+	else: rb_exclamation.hide();
 	current_page = Page.Items;
 	if items_container.get_child_count() > 0:
 		items_container.get_child(0).grab_focus();
+	else:
+		info.text = "you haven't collected any items yet.";
 	pass;
 
 func populate_suspect_notes_list(suspect : GameTypes.Suspects) -> void:

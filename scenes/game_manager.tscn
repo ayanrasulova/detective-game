@@ -51,6 +51,24 @@ associated_suspect = 1
 evidence_string_description = "this is a test evidence piece with a long description. this is a long description!"
 metadata/_custom_type_script = "uid://cg42fvh3furfu"
 
+[sub_resource type="Resource" id="Resource_j3pel"]
+script = ExtResource("2_glms7")
+associated_suspect = 7
+evidence_string_description = "miscellaneous evidence 1"
+metadata/_custom_type_script = "uid://cg42fvh3furfu"
+
+[sub_resource type="Resource" id="Resource_ts7x6"]
+script = ExtResource("2_glms7")
+associated_suspect = 7
+evidence_string_description = "miscellaneous evidence 2"
+metadata/_custom_type_script = "uid://cg42fvh3furfu"
+
+[sub_resource type="Resource" id="Resource_k4jhu"]
+script = ExtResource("2_glms7")
+associated_suspect = 7
+evidence_string_description = "miscellaneous evidence 2"
+metadata/_custom_type_script = "uid://cg42fvh3furfu"
+
 [node name="GameManager" type="Node" unique_id=237939849]
 script = ExtResource("1_hwd4i")
 all_items = Dictionary[int, ExtResource("2_oo155")]({
@@ -59,19 +77,11 @@ all_items = Dictionary[int, ExtResource("2_oo155")]({
 2: SubResource("Resource_q8mjp"),
 3: SubResource("Resource_jdad8")
 })
-collected_items = Dictionary[int, bool]({
-0: true,
-1: true,
-2: true,
-3: true
-})
-collected_evidence = Dictionary[int, bool]({
-0: true,
-1: true,
-2: true
-})
 all_evidence = Dictionary[int, ExtResource("2_glms7")]({
 0: SubResource("Resource_ternb"),
 1: SubResource("Resource_oo155"),
-2: SubResource("Resource_udu3i")
+2: SubResource("Resource_udu3i"),
+3: SubResource("Resource_j3pel"),
+4: SubResource("Resource_ts7x6"),
+5: SubResource("Resource_k4jhu")
 })

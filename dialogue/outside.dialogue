@@ -7,8 +7,14 @@ Go inside?
 => END
 
 ~ dumpster
-Grandma: Hi, sonny. What do you need?
-- Present Evidence
+You: There's something here.
+- Pick it up.
+	$> collect_item(GameTypes.Items.Envelope)
 	=> END
-- Nevermind
+- Get the scoop.
+	$> collect_evidence(Evidence.Enum.HasGun)
+	You: Just what I was looking for.
+	=> END
+- Get misc.
+	$> collect_evidence(Evidence.Enum.MiscTest1)
 	=> END

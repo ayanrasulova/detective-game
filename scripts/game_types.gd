@@ -9,6 +9,7 @@ enum Suspects {
 		Squatter,
 		Super,
 		Ollie,
+		None
 	}
 
 const SUSPECT_NAMES : Dictionary[Suspects, String] = {

@@ -29,6 +29,9 @@ GameManager="*uid://bl44r7unkc6rk"
 [dialogue_manager]
 
 runtime/balloon_path="res://scenes/dialogue_balloon/balloon.tscn"
+editor/new_file_template="~ start
+=> END"
+runtime/state_autoload_shortcuts=["GameManager"]
 
 [display]
 

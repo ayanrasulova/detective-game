@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://3ponqtqh4a4w" path="res://scripts/journal_item.gd" id="2_j0gnh"]
 [ext_resource type="Texture2D" uid="uid://dqe42de2hmk2o" path="res://sprites/ui/evidence_button.png" id="2_uyxvg"]
 [ext_resource type="FontFile" uid="uid://dc8m0w3ym3jea" path="res://fonts/Mom«t___.ttf" id="4_j0gnh"]
+[ext_resource type="Texture2D" uid="uid://c2hdc0pv8nty6" path="res://sprites/ui/drawings/checkbox.png" id="5_h2kao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iec6v"]
 bg_color = Color(1, 1, 1, 1)
@@ -64,3 +65,10 @@ theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[wave]! "
 scroll_active = false
+
+[node name="Check" type="TextureRect" parent="." unique_id=1012449590]
+modulate = Color(0.3499999, 1, 0, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_h2kao")

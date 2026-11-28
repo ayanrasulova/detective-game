@@ -41,7 +41,6 @@ func unselect() -> void:
 	select_prompt.hide();
 
 func _see_to_remove_exclamation() -> void:
-	print("checked");
 	var related_collected_evidence : Array[Evidence] = GameManager.get_collected_evidence().filter(func(e : Evidence):return e.associated_suspect == suspect);
 	related_collected_evidence = related_collected_evidence.filter(func(e : Evidence): return e.new);
 	if not related_collected_evidence.is_empty(): exclamation.show();
